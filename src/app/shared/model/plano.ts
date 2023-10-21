@@ -1,24 +1,24 @@
 export class Plano {
   constructor(
-    private _nome: string,
-    private _preco: number,
+    private _duracao: number,
+    private _precoBase: number,
     private _numPecas: number
   ) {}
 
-  get nome(): string {
-    return this._nome;
+  get duracao(): number {
+    return this._duracao;
   }
 
-  set nome(novoNome: string) {
-    this._nome = novoNome;
+  set duracao(novaDuracao: number) {
+    this._duracao = novaDuracao;
   }
 
-  get preco(): number {
-    return this._preco;
+  get precoBase(): number {
+    return this._precoBase;
   }
 
-  set preco(novoPreco: number) {
-    this._preco = novoPreco;
+  set precoBase(novoPrecoBase: number) {
+    this._precoBase = novoPrecoBase;
   }
 
   get numPecas(): number {

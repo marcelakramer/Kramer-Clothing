@@ -9,20 +9,21 @@ export class Usuario {
     return this._nome;
   }
 
-  set nome(novoNome: string) {
-    this._nome = novoNome;
-  }
-
   get email(): string {
     return this._email;
   }
 
-  set email(novoEmail: string) {
-    this._email = novoEmail;
-  }
-
   get senha(): string {
     return this._senha;
+  }
+
+  
+  set nome(novoNome: string) {
+    this._nome = novoNome;
+  }
+
+  set email(novoEmail: string) {
+    this._email = novoEmail;
   }
 
   set senha(novaSenha: string) {
