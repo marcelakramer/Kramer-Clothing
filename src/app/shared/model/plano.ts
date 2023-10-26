@@ -1,9 +1,14 @@
 export class Plano {
   constructor(
+    private _id: number,
     private _duracao: number,
     private _precoBase: number,
     private _numPecas: number
   ) {}
+
+  get id(): number {
+    return this._id;
+  }
 
   get duracao(): number {
     return this._duracao;
