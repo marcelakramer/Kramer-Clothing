@@ -1,43 +1,13 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Plano } from '../model/plano';
-import { PLANOS } from '../consts/PLANOS';
+import { BaseService } from './base.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class PlanoService {
-  private _planos: Array<Plano>;
-
-  constructor() {
-    this._planos = PLANOS;
-  }
-
-  inserir(plano: Plano): void {
-    const index = this.localizar(plano.id);
-    if(index >= 0) throw new Error(`Plano com id ${plano} já existente`);
-
-    this._planos.push(plano);
-  }
-
-  listar(): Array<Plano> {
-    return this._planos;
-  }
-
-  //TODO: update
-
-  remover(id: number): boolean {
-    const index = this.localizar(id);
-
-    if(index >= 0) {
-      this._planos.splice(index, 1);
-
-      return true;
-    }
-
-    return false;
-  }
-
-  localizar(id: number): number {
-    return this._planos.findIndex(plano => plano.id === id)
+export class PlanoService extends BaseService<Plano> {
+  constructor(http: HttpClient) {
+    super(http, 'http://localhost:3000/plano');
   }
 }

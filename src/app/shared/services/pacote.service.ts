@@ -1,43 +1,13 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Pacote } from '../model/pacote';
-import { PACOTES } from '../consts/PACOTES';
+import { BaseService } from './base.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class PacoteService {
-  private _pacotes: Array<Pacote>;
-
-  constructor() {
-    this._pacotes = PACOTES;
-  }
-
-  inserir(pacote: Pacote): void {
-    const index = this.localizar(pacote.nome);
-    if(index >= 0) throw new Error(`Pacote com id ${pacote} já existente`);
-
-    this._pacotes.push(pacote);
-  }
-
-  listar(): Array<Pacote> {
-    return this._pacotes;
-  }
-
-  //TODO: update
-
-  remover(nome: string): boolean {
-    const index = this.localizar(nome);
-
-    if(index >= 0) {
-      this._pacotes.splice(index, 1);
-
-      return true;
-    }
-
-    return false;
-  }
-
-  localizar(nome: string): number {
-    return this._pacotes.findIndex(pacote => pacote.nome === nome)
+export class PacoteService extends BaseService<Pacote> {
+  constructor(http: HttpClient) {
+    super(http, 'http://localhost:3000/pacote');
   }
 }
