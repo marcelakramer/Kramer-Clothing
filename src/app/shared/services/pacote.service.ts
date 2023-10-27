@@ -12,7 +12,7 @@ export class PacoteService {
     this._pacotes = PACOTES;
   }
 
-  inserir(pacote: Pacote) {
+  inserir(pacote: Pacote): void {
     const index = this.localizar(pacote.nome);
     if(index >= 0) throw new Error(`Pacote com id ${pacote} já existente`);
 
@@ -37,7 +37,7 @@ export class PacoteService {
     return false;
   }
 
-  localizar(nome: string) {
+  localizar(nome: string): number {
     return this._pacotes.findIndex(pacote => pacote.nome === nome)
   }
 }

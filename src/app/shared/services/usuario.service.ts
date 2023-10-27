@@ -12,7 +12,7 @@ export class UsuarioService {
     this._usuarios = USUARIOS
   }
 
-  inserir(usuario: Usuario) {
+  inserir(usuario: Usuario): void {
     const index = this.localizar(usuario.email);
     if(index >= 0) throw new Error(`Usuário com email ${usuario.email} já existente`);
 
@@ -37,7 +37,7 @@ export class UsuarioService {
     return false;
   }
 
-  localizar(email: string) {
+  localizar(email: string): number {
     return this._usuarios.findIndex(usuario => usuario.email === email)
   }
 }

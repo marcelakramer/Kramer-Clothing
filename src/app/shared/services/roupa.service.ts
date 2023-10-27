@@ -12,7 +12,7 @@ export class RoupaService {
     this._roupas = ROUPAS;
   }
 
-  inserir(roupa: Roupa) {
+  inserir(roupa: Roupa): void {
     const index = this.localizar(roupa.id);
     if(index >= 0) throw new Error(`Roupa com id ${roupa} já existente`);
 
@@ -37,7 +37,7 @@ export class RoupaService {
     return false;
   }
 
-  localizar(id: number) {
+  localizar(id: number): number {
     return this._roupas.findIndex(roupa => roupa.id === id)
   }
 }

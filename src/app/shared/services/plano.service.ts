@@ -12,7 +12,7 @@ export class PlanoService {
     this._planos = PLANOS;
   }
 
-  inserir(plano: Plano) {
+  inserir(plano: Plano): void {
     const index = this.localizar(plano.id);
     if(index >= 0) throw new Error(`Plano com id ${plano} já existente`);
 
@@ -37,7 +37,7 @@ export class PlanoService {
     return false;
   }
 
-  localizar(id: number) {
+  localizar(id: number): number {
     return this._planos.findIndex(plano => plano.id === id)
   }
 }
