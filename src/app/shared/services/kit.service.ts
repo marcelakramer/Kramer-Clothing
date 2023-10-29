@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Pacote } from '../model/pacote';
+import { Kit } from '../model/kit';
 import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PacoteService extends BaseService<Pacote> {
+export class KitService extends BaseService<Kit> {
   constructor(http: HttpClient) {
-    super(http, 'http://localhost:3000/pacote');
+    super(http, 'http://localhost:3000/kit');
   }
 }
