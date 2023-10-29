@@ -1,0 +1,56 @@
+.sign-in-section {
+    width: 100%;
+    height: calc(100% - 10rem);
+    padding-top: 10rem;
+    background-color: #E3E3E3;
+}
+
+.sign-in-card {
+    margin: auto;
+    width: 30%;
+    height: 25rem;
+    border-radius: 7px;
+    box-shadow: 0 3.5px 3.5px 0 rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+mat-card-title {
+    margin-bottom: 2rem;
+    padding-top: 2.5rem;
+    color: #2F2E41;
+    font-family: Nunito;
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+
+mat-form-field {
+    width: 70%;
+    color: #A2A1B6;
+    border-color: red;
+}
+
+.sign-up-text {
+    color: #2F2E41;
+    font-family: Nunito;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.sign-up-text .purple {
+    color: #632299;
+}
+
+.sign-in-btn {
+    margin: 1rem auto;
+}
+
+.sign-in-btn button {
+    width: 8rem;
+    height: 3rem;
+    border-radius: 7px;
+    background-color: #632299;
+    color: #FFF;
+    font-family: Nunito;
+    font-size: 1rem;
+    font-weight: 600;
+}
