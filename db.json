@@ -1,6 +1,50 @@
 {
   "user": [],
   "clothing": [],
-  "plan": [],
-  "kit": []
+  "plan": [
+    {
+      "id": 1,
+      "duration": 7,
+      "basePrice": 50,
+      "numOfClothes": 10
+    },
+    {
+      "id": 2,
+      "duration": 15,
+      "basePrice": 100,
+      "numOfClothes": 20
+    },
+    {
+      "id": 3,
+      "duration": 30,
+      "basePrice": 200,
+      "numOfClothes": 40
+    }
+  ],
+  "kit": [
+    {
+      "id": 1,
+      "name": "Casual",
+      "clothes": [],
+      "factor": 1
+    },
+    {
+      "id": 2,
+      "name": "Workaholic",
+      "clothes": [],
+      "factor": 1.25 
+    },
+    {
+      "id": 3,
+      "name": "Party",
+      "clothes": [],
+      "factor": 1.5
+    },
+    {
+      "id": 4,
+      "name": "Custom",
+      "clothes": [],
+      "factor": 2
+    }
+  ]
 }
