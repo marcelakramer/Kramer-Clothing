@@ -1,10 +1,16 @@
-<div class="sign-in-section">
-    <mat-card class="sign-in-card">
+<div class="sign-up-section">
+    <mat-card class="sign-up-card">
             <mat-card-title>
-                Sign in
+                Sign up
             </mat-card-title>
         <mat-card-content>
             <form>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
                     <input matInput>
@@ -18,14 +24,14 @@
                     </button>
                   </mat-form-field>
 
-                <div class="sign-up-text">
-                    Don’t have an account? <a routerLink="/sign-up" class="purple">Sign up</a>
+                <div class="sign-in-text">
+                    Already have an account? <a routerLink="/sign-in" class="purple">Sign in</a>
                 </div>  
             </form>
         </mat-card-content>
         <mat-card-actions>
-            <div class="sign-in-btn">
-                <button mat-raised-button color="primary">Sign in</button>
+            <div class="sign-up-btn">
+                <button mat-raised-button color="primary">Sign up</button>
             </div>
         </mat-card-actions>
     </mat-card>

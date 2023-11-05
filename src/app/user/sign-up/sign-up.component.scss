@@ -1,14 +1,14 @@
-.sign-in-section {
+.sign-up-section {
     width: 100%;
-    height: calc(100% - 10rem);
-    padding-top: 10rem;
+    height: calc(100% - 8.5rem);
+    padding-top: 8.5rem;
     background-color: #E3E3E3;
 }
 
-.sign-in-card {
+.sign-up-card {
     margin: auto;
     width: 30%;
-    height: 25rem;
+    height: 30rem;
     border-radius: 7px;
     box-shadow: 0 3.5px 3.5px 0 rgba(0, 0, 0, 0.25);
     text-align: center;
@@ -29,29 +29,29 @@ mat-form-field {
     border-color: red;
 }
 
-.sign-up-text {
+.sign-in-text {
     color: #2F2E41;
     font-family: Nunito;
     font-size: 0.875rem;
     font-weight: 400;
 }
 
-.sign-up-text .purple {
+.sign-in-text .purple {
     color: #632299;
     font-weight: 600;
     text-decoration: none;
 }
 
-.sign-up-text .purple:hover {
+.sign-in-text .purple:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
-.sign-in-btn {
+.sign-up-btn {
     margin: 1rem auto;
 }
 
-.sign-in-btn button {
+.sign-up-btn button {
     width: 8rem;
     height: 3rem;
     border-radius: 7px;
