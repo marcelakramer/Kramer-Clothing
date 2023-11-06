@@ -9,16 +9,19 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInComponent},  
-  { path: 'sign-up', component: SignUpComponent}
+  { path: 'sign-up', component: SignUpComponent},
+  { path: 'thank-you', component: ThankYouComponent},
 ];
 
 @NgModule({
   declarations: [
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    ThankYouComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +34,8 @@ const routes: Routes = [
   ],
   exports: [
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    ThankYouComponent
   ]
 })
 export class UserModule { }
