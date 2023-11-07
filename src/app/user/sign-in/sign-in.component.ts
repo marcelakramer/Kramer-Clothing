@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class SignInComponent {
   hide = true;
+
+  onSubmit(): void {}
 }

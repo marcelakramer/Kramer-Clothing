@@ -61,3 +61,8 @@ mat-form-field {
     font-size: 1rem;
     font-weight: 600;
 }
+
+.disabled-button {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
