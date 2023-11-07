@@ -1,5 +1,12 @@
 {
-  "user": [],
+  "user": [
+    {
+      "_name": "dioguinho",
+      "_email": "igooo",
+      "_password": "111",
+      "id": 1
+    }
+  ],
   "clothing": [],
   "plan": [
     {
@@ -32,7 +39,7 @@
       "id": 2,
       "name": "Workaholic",
       "clothes": [],
-      "factor": 1.25 
+      "factor": 1.25
     },
     {
       "id": 3,

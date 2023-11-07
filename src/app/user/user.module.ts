@@ -10,9 +10,10 @@ import {MatButtonModule} from '@angular/material/button';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
-  { path: 'sign-in', component: SignInComponent},  
+  { path: 'sign-in', component: SignInComponent},
   { path: 'sign-up', component: SignUpComponent},
   { path: 'thank-you', component: ThankYouComponent},
 ];
@@ -30,7 +31,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
   exports: [
     SignInComponent,
