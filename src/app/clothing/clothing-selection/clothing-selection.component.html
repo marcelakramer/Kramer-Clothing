@@ -16,7 +16,7 @@
     <div class="clothes">
         <mat-card *ngFor="let clothing of clothes" class="clothing-card">
             <img class="clothimg-image" src="../../../assets/clothes/cloth1.png" alt="clothing">
-            <p class="clothing-name">{{clothing.name}}</p>
+            <p class="clothing-name">{{clothing.description}}</p>
             <div class="clothing-sizes-flex">
                 <div *ngFor="let size of clothing.sizes" class="clothing-size">{{size}}</div>
             </div>
