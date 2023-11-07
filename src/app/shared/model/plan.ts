@@ -1,14 +1,9 @@
 export class Plan {
   constructor(
-    private _id: number,
     private _duration: number,
     private _basePrice: number,
     private _numOfClothes: number
   ) {}
-
-  get id(): number {
-    return this._id;
-  }
 
   get duration(): number {
     return this._duration;
