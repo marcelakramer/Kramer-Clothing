@@ -2,17 +2,12 @@ import { Kit } from "./kit";
 
 export class Clothing {
     constructor(
-      private _id: number,
       private _brand: string,
       private _size: string,
       private _color: string,
       private _material: string,
       private _kit: Kit | null = null
     ) {}
-
-    get id(): number {
-      return this._id;
-    }
 
     get brand(): string {
       return this._brand;
