@@ -1,10 +1,40 @@
 {
   "user": [
     {
-      "_name": "dioguinho",
-      "_email": "igooo",
-      "_password": "111",
+      "_name": "ee",
+      "_email": "ee",
+      "_password": "ee",
       "id": 1
+    },
+    {
+      "_name": "nada",
+      "_email": "nada",
+      "_password": "nada",
+      "id": 2
+    },
+    {
+      "_name": "nada",
+      "_email": "nadaa",
+      "_password": "nada",
+      "id": 3
+    },
+    {
+      "_name": "nada",
+      "_email": "nadaaa",
+      "_password": "nada",
+      "id": 4
+    },
+    {
+      "_name": "marcela",
+      "_email": "marcela@gmail",
+      "_password": "marcela",
+      "id": 5
+    },
+    {
+      "_name": "diogouinho",
+      "_email": "diogouinho",
+      "_password": "diogouinho",
+      "id": 6
     }
   ],
   "clothing": [],

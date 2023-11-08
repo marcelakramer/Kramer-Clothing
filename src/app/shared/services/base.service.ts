@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BaseService<T> {
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {}
+  constructor(protected http: HttpClient, @Inject('BASE_URL') protected baseUrl: string) {}
 
   getAll(): Observable<T[]> {
     return this.http.get<T[]>(this.baseUrl);

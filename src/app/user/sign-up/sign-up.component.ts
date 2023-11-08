@@ -16,18 +16,15 @@ export class SignUpComponent {
 
   }
 
-  onSubmit(): any {
+  onSubmit(): void {
     this.userService.create(this.user).subscribe(
-      response => {
-        console.log('criado');
-
+      (response) => {
+        console.log('Usuário criado');
+      },
+      (error) => {
+        alert('Erro ao criar usuário: email já cadastrado');
       }
     );
-
-    this.userService.getAll().subscribe(
-      response => {
-        console.log(response)
-      }
-    )
   }
+
 }
