@@ -20,8 +20,16 @@
 }
 
 .continue-button {
+    opacity: 0.5;
+    pointer-events: none;
     font-weight: 600;
+
+    &.enabled {
+        opacity: 1;
+        pointer-events: all;
+    }
 }
+
 
 .clothing-selection {
     text-align: center;
@@ -55,9 +63,20 @@ p {
 
 .clothing-card {
     width: 15rem;
-    height: 20rem;
+    height: 17.5rem;
     margin-top: 4rem;
     border: none;
+
+    &.selected {
+        border: 5px solid #673AB7;
+        background-color: #673AB7;
+        color: #FFFFFF;
+        font-weight: 700;
+
+        .clothing-image {
+            opacity: 0.5;
+        }
+    }
 }
 
 .clothing-name {

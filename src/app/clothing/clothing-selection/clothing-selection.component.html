@@ -4,22 +4,22 @@
     </div>
     <div class="buttons-section">
         <button class="back-button" mat-button color="basic">Back</button>
-        <button class="continue-button" mat-flat-button color="primary">Continue</button>
+        <button class="continue-button" mat-flat-button color="primary" [ngClass]="{ 'enabled': canContinue() }" routerLink="/thank-you">Continue</button>
     </div>
 </div>
 <div class="clothing-selection">
     <h1>SELECT YOUR CLOTHES</h1>
     <div class="selection-info">
         <p>Plan: <span class="purple">Casual</span></p>
-        <p>Clothes remaining: <span class="purple">9</span></p>
+        <p>Clothes remaining: <span class="purple">{{clothesRemaining}}</span></p>
     </div>
     <div class="clothes">
-        <mat-card *ngFor="let clothing of clothes" class="clothing-card">
-            <img class="clothimg-image" src="../../../assets/clothes/cloth1.png" alt="clothing">
+        <mat-card *ngFor="let clothing of clothes" class="clothing-card" (click)="toggleSelected(clothing)" [ngClass]="{ 'selected': isSelected(clothing) }">
+            <img class="clothing-image" src="../../../assets/clothes/cloth1.png" alt="clothing">
             <p class="clothing-name">{{clothing.description}}</p>
-            <div class="clothing-sizes-flex">
-                <div *ngFor="let size of clothing.sizes" class="clothing-size">{{size}}</div>
-            </div>
+            <!-- <div class="clothing-sizes-flex">
+                <div *ngFor="let size of clothing.sizes" class="clothing-size" [ngClass]="{ 'selected': isSelected(clothing) }" (click)="toggleSelected(clothing, size)">{{size}}</div>
+            </div> -->
         </mat-card>
     </div>
 </div>
