@@ -39,7 +39,7 @@ export class ClothingSelectionComponent implements OnInit{
     if (this.isSelected(clothing)) {
       this.selectedClothes = this.selectedClothes.filter((c) => c !== clothing);
     } else if (this.clothesRemaining === 0) {
-      console.log('Máximo atingido.');
+      alert("There are no remaining clothes to choose.");
     } else {
       this.selectedClothes.push(clothing);
     }
