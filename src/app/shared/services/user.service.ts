@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, mergeMap, throwError } from 'rxjs';
+import { Observable, catchError, map, mergeMap, throwError } from 'rxjs';
 import { BaseService } from './base.service';
 import { User } from '../model/user';
 
@@ -24,4 +24,24 @@ export class UserService extends BaseService<User> {
     );
   }
 
+  authenticate(email: string, password: string): Observable<User> {
+    // Fazer uma solicitação HTTP para verificar as credenciais do usuário
+    return this.http
+      .get<User[]>(`${this.baseUrl}?_email=${email}&_password=${password}`)
+      .pipe(
+        map((users) => {
+          if (users.length === 1) {
+            // Credenciais válidas, retornar o usuário autenticado
+            return users[0];
+          } else {
+            // Credenciais inválidas, lançar um erro
+            throw new Error('Credenciais inválidas');
+          }
+        }),
+        catchError((error) => {
+          // Lidar com erros da solicitação HTTP
+          return throwError(error);
+        })
+      );
+  }
 }
