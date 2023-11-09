@@ -17,6 +17,18 @@
       "_email": "asast",
       "_password": "astast",
       "id": 3
+    },
+    {
+      "_name": "sergio",
+      "_email": "sergio",
+      "_password": "sergio",
+      "id": 4
+    },
+    {
+      "_name": "ronalda",
+      "_email": "ronalda",
+      "_password": "ronalda",
+      "id": 5
     }
   ],
   "clothing": [],

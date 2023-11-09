@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/shared/model/user';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -12,14 +13,14 @@ export class SignUpComponent {
   hide = true;
   user = new User('', '', '');
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
 
   }
 
   onSubmit(): void {
     this.userService.create(this.user).subscribe(
       (response) => {
-        console.log('Usuário criado');
+        this.router.navigate(['/sign-in'])
       },
       (error) => {
         alert('Erro ao criar usuário: email já cadastrado');
