@@ -9,7 +9,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class SignUpComponent {
   hide = true;
-  user = new User('', '', '');
+  user = new User('', '', '', '');
 
   constructor(private userService: UserService) {
 

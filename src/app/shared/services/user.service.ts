@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map, mergeMap, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private baseUrl: string = 'http://localhost:3000/user';
+  private baseUrl: string = 'http://localhost:3000/users';
+  
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<User[]> {

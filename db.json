@@ -1,38 +1,20 @@
 {
-  "user": [
+  "users": [
     {
-      "_name": "matheus",
-      "_email": "matheus",
-      "_password": "matheus",
-      "id": 1
+      "id": 1,
+      "name": "b",
+      "email": "b",
+      "password": "b"
     },
     {
-      "_name": "1",
-      "_email": "1",
-      "_password": "1",
-      "id": 2
-    },
-    {
-      "_name": "astast",
-      "_email": "asast",
-      "_password": "astast",
-      "id": 3
-    },
-    {
-      "_name": "sergio",
-      "_email": "sergio",
-      "_password": "sergio",
-      "id": 4
-    },
-    {
-      "_name": "ronalda",
-      "_email": "ronalda",
-      "_password": "ronalda",
-      "id": 5
+      "id": 2,
+      "name": "b",
+      "email": "bc",
+      "password": "b"
     }
   ],
-  "clothing": [],
-  "plan": [
+  "clothings": [],
+  "plans": [
     {
       "id": 1,
       "duration": 7,
@@ -52,7 +34,7 @@
       "numOfClothes": 40
     }
   ],
-  "kit": [
+  "kits": [
     {
       "id": 1,
       "name": "Casual",
