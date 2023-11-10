@@ -19,6 +19,7 @@ export class KitSelectionComponent implements OnInit{
           response.map((kit) => {
             this.kits.push(
               new Kit(
+                '',
                 kit.name,
                 kit.factor
               )

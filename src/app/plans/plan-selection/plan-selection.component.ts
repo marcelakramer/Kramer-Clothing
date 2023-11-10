@@ -19,6 +19,7 @@ export class PlanSelectionComponent {
           response.map((plan) => {
             this.plans.push(
               new Plan(
+                '',
                 plan.duration,
                 plan.basePrice,
                 plan.numOfClothes
