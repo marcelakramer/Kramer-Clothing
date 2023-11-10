@@ -5,7 +5,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent {
   hide = true;
@@ -15,13 +15,12 @@ export class SignInComponent {
   constructor(private userService: UserService, private router: Router) {}
 
   onSubmit(): void {
-    this.userService.authenticate(this.email, this.password).subscribe(
-      (user: any) => {
-        this.router.navigate(['/thank-you'])
-      },
-      (error: any) => {
-        alert('Credenciais inválidas')
-      }
-    );
+    this.userService
+      .getByAny({ key: 'email', value: this.email })
+      .subscribe((found) => {
+        if (found[0].password == this.password) {
+          this.router.navigate(['']);
+        }
+      });
   }
 }
