@@ -16,16 +16,7 @@ export class PlanSelectionComponent {
   ngOnInit(): void {
       this.planService.getAll().subscribe(
         response => {
-          response.map((plan) => {
-            this.plans.push(
-              new Plan(
-                '',
-                plan.duration,
-                plan.basePrice,
-                plan.numOfClothes
-              )
-            )
-          })
+          this.plans = response;
         }
       )
       console.log(this.plans);

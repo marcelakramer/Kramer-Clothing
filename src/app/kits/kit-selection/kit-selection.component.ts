@@ -16,15 +16,7 @@ export class KitSelectionComponent implements OnInit{
   ngOnInit(): void {
       this.kitService.getAll().subscribe(
         response => {
-          response.map((kit) => {
-            this.kits.push(
-              new Kit(
-                '',
-                kit.name,
-                kit.factor
-              )
-            )
-          })
+          this.kits = response;
         }
       )
       console.log(this.kits);
