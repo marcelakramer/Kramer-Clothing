@@ -6,6 +6,7 @@ import { UnloggedHeaderComponent } from './unlogged-header/unlogged-header.compo
 import { MatButtonModule } from '@angular/material/button';
 import { LoggedHeaderComponent } from './logged-header/logged-header.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     UnloggedHeaderComponent,
     LoggedHeaderComponent,
     MainPageComponent,
+    ThankYouComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { MainPageComponent } from './main-page/main-page.component';
     FooterComponent,
     UnloggedHeaderComponent,
     LoggedHeaderComponent,
-    MainPageComponent
+    MainPageComponent,
+    ThankYouComponent
   ]
 })
 export class LayoutModule { }
