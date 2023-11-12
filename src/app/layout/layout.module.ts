@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { UnloggedHeaderComponent } from './unlogged-header/unlogged-header.component';
 import { MatButtonModule } from '@angular/material/button';
 import { LoggedHeaderComponent } from './logged-header/logged-header.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { LoggedHeaderComponent } from './logged-header/logged-header.component';
     FooterComponent,
     UnloggedHeaderComponent,
     LoggedHeaderComponent,
+    MainPageComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { LoggedHeaderComponent } from './logged-header/logged-header.component';
   exports: [
     FooterComponent,
     UnloggedHeaderComponent,
-    LoggedHeaderComponent
+    LoggedHeaderComponent,
+    MainPageComponent
   ]
 })
 export class LayoutModule { }
