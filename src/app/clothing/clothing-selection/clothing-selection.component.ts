@@ -20,20 +20,9 @@ export class ClothingSelectionComponent implements OnInit{
   ngOnInit(): void {
       this.clothingService.getAll().subscribe(
         response => {
-          response.map((clothing) => {
-            this.clothes.push(
-              new Clothing(
-                clothing.description,
-                clothing.brand,
-                clothing.size,
-                clothing.color,
-                clothing.material
-              )
-            ); 
+          this.clothes = response;
           });
         }
-      )
-  }
 
   toggleSelected(clothing: Clothing): void {
     if (this.isSelected(clothing)) {
