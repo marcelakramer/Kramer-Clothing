@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { KitsModule } from './kits/kits.module';
 import { PlansModule } from './plans/plans.module';
 import { ClothingModule } from './clothing/clothing.module';
-
+import { LayoutModule } from './layout/layout.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +23,7 @@ import { ClothingModule } from './clothing/clothing.module';
     KitsModule,
     PlansModule,
     ClothingModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

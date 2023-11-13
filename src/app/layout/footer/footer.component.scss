@@ -1,0 +1,26 @@
+.footer {
+  text-align: center;
+  background-color: #E3E3E3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.social-icons {
+  margin-bottom: 10px;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  margin: 0 10px;
+  border: 2px solid #673AB7;
+  border-radius: 50%; 
+  padding: 4px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #673AB7;
+}
