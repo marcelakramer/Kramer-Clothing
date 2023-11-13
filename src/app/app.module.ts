@@ -8,10 +8,11 @@ import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { KitsModule } from './kits/kits.module';
 import { PlansModule } from './plans/plans.module';
+import { ClothingModule } from './clothing/clothing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +21,8 @@ import { PlansModule } from './plans/plans.module';
     UserModule,
     BrowserAnimationsModule,
     KitsModule,
-    PlansModule
+    PlansModule,
+    ClothingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
