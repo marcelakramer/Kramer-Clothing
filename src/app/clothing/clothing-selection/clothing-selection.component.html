@@ -17,9 +17,6 @@
         <mat-card *ngFor="let clothing of clothes" class="clothing-card" (click)="toggleSelected(clothing)" [ngClass]="{ 'selected': isSelected(clothing) }">
             <img class="clothing-image" src="../../../assets/clothes/cloth1.png" alt="clothing">
             <p class="clothing-name">{{clothing.description}}</p>
-            <!-- <div class="clothing-sizes-flex">
-                <div *ngFor="let size of clothing.sizes" class="clothing-size" [ngClass]="{ 'selected': isSelected(clothing) }" (click)="toggleSelected(clothing, size)">{{size}}</div>
-            </div> -->
         </mat-card>
     </div>
 </div>
