@@ -18,9 +18,15 @@ export class SignInComponent {
     this.userService
       .getByAny({ key: 'email', value: this.email })
       .subscribe((found) => {
-        if (found[0].password == this.password) {
-          this.router.navigate(['']);
+        if (found[0]) {
+          if (found[0].password == this.password) {
+            this.router.navigate(['']);
+          }
+        } else {
+          alert(`Credenciais inválidas`);
         }
+
+        this.router.navigate(['thank-you']);
       });
   }
 }
