@@ -10,8 +10,6 @@ import { KitsModule } from './kits/kits.module';
 import { PlansModule } from './plans/plans.module';
 import { ClothingModule } from './clothing/clothing.module';
 import { LayoutModule } from './layout/layout.module';
-import { FooterComponent } from './layout/footer/footer.component';
-
 @NgModule({
   declarations: [
     AppComponent,

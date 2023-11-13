@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { UnloggedHeaderComponent } from './unlogged-header/unlogged-header.component';
 import { MatButtonModule } from '@angular/material/button';
 import { LoggedHeaderComponent } from './logged-header/logged-header.component';
-import { MainPageComponent } from './main-page/main-page.component';
+import { InitialSectionComponent } from './initial-section/initial-section.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 
 
@@ -14,7 +14,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
     FooterComponent,
     UnloggedHeaderComponent,
     LoggedHeaderComponent,
-    MainPageComponent,
+    InitialSectionComponent,
     ThankYouComponent,
   ],
   imports: [
@@ -26,7 +26,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
     FooterComponent,
     UnloggedHeaderComponent,
     LoggedHeaderComponent,
-    MainPageComponent,
+    InitialSectionComponent,
     ThankYouComponent
   ]
 })
