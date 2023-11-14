@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { KitSelectionComponent } from './kits/kit-selection/kit-selection.component';
-import { PlanSelectionComponent } from './plans/plan-selection/plan-selection.component';
+import { KitMainPageComponent } from './kits/kit-main-page/kit-main-page.component';
+import { PlanMainPageComponent } from './plans/plan-main-page/plan-main-page.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { ClothingSelectionComponent } from './clothing/clothing-selection/clothing-selection.component';
+import { ThankYouComponent } from './layout/thank-you/thank-you.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
-  { path: 'kits', component: KitSelectionComponent },
-  { path: 'plans', component: PlanSelectionComponent },
+  { path: '', redirectTo: '/kits', pathMatch: 'full' },
+  { path: 'kits', component: KitMainPageComponent },
+  { path: 'plans', component: PlanMainPageComponent },
+  { path: 'clothes', component: ClothingSelectionComponent },
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'thank-you', component: ThankYouComponent },
 ];
 
 @NgModule({
