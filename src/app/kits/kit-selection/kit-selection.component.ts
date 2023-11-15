@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Kit } from 'src/app/shared/model/kit';
+import { User } from 'src/app/shared/model/user';
 import { KitService } from 'src/app/shared/services/kit.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-kit-selection',
@@ -10,16 +13,25 @@ import { KitService } from 'src/app/shared/services/kit.service';
 export class KitSelectionComponent implements OnInit{
   kits: Kit[] = [];
   selectedKit: Kit | null = null;
+  user: User | null = null;
 
-  constructor(private kitService: KitService) {}
+  isUsserLoggedIn = false;
+
+  constructor(private kitService: KitService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
+      this.isUsserLoggedIn = this.userService.isLoggedIn();
       this.kitService.getAll().subscribe(
         response => {
           this.kits = response;
         }
       )
-      console.log(this.kits);
+      const userId = (this.activatedRoute.snapshot.params['userId?']);
+      this.userService.getByAny({key: 'id', value: userId}).subscribe(
+        response => {
+          this.user = response[0];
+        }
+      )
   }
 
   toggleSelected(kit: Kit): void {
@@ -27,11 +39,15 @@ export class KitSelectionComponent implements OnInit{
       this.selectedKit = null;
     } else {
       this.selectedKit = kit;
+      this.router.navigate(['/plans', this.selectedKit.id, this.user?.id]);
     }
-    console.log(this.selectedKit);
   }
 
   isSelected(kit: Kit): boolean {
     return this.selectedKit === kit;
+  }
+
+  goToSignIn(): void {
+    this.router.navigate(['/sign-in'])
   }
 }

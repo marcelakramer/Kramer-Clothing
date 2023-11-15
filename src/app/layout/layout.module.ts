@@ -20,7 +20,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
   imports: [
     CommonModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   exports: [
     FooterComponent,

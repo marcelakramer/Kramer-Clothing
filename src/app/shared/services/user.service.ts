@@ -8,7 +8,8 @@ import { User } from '../model/user';
 })
 export class UserService {
   private baseUrl: string = 'http://localhost:3000/users';
-  
+  private islogged: boolean = false;
+
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<User[]> {
@@ -29,5 +30,13 @@ export class UserService {
 
   delete(user: User) {
     return this.http.delete<User>(`${this.baseUrl}/user/${user.email}`);
+  }
+
+  changeLoggedIn(bool: boolean) {
+    this.islogged = bool;
+  }
+
+  isLoggedIn(): boolean {
+    return this.islogged;
   }
 }
