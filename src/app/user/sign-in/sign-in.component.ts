@@ -20,6 +20,7 @@ export class SignInComponent {
       .subscribe((found) => {
         if (found[0]) {
           if (found[0].password == this.password) {
+            this.userService.changeLoggedIn(true)
             this.router.navigate(['/kits', found[0].id]);
           }
         } else {

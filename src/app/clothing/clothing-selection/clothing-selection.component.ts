@@ -16,14 +16,17 @@ import { User } from 'src/app/shared/model/user';
 export class ClothingSelectionComponent implements OnInit{
   clothes: Clothing[] = [];
   selectedClothes: Clothing[] = [];
-  clothesRemaining: number = 0;
+  clothesRemaining: number | undefined;
   kit: Kit | null = null;
   plan: Plan | null = null;
   user: User | null = null;
 
-  constructor(private clothingService: ClothingService, private planService: PlanService, private kitService: KitService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private clothingService: ClothingService, private planService: PlanService, private kitService: KitService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
+
+  }
 
   ngOnInit(): void {
+
     const kitId = this.activatedRoute.snapshot.params['kitId'];
     this.kitService.getByAny({key: 'id', value: kitId}).subscribe(
       response => {
@@ -35,6 +38,7 @@ export class ClothingSelectionComponent implements OnInit{
     this.planService.getByAny({key: 'id', value: planId}).subscribe(
       response => {
         this.plan = response[0];
+        this.calcClothesRemaining();
       }
     );
 
