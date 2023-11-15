@@ -3,14 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { UserModule } from './user/user.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { KitsModule } from './kits/kits.module';
+import { PlansModule } from './plans/plans.module';
+import { ClothingModule } from './clothing/clothing.module';
+import { LayoutModule } from './layout/layout.module';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    UserModule,
+    BrowserAnimationsModule,
+    KitsModule,
+    PlansModule,
+    ClothingModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
