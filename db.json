@@ -11,6 +11,18 @@
       "name": "b",
       "email": "bc",
       "password": "b"
+    },
+    {
+      "id": 3,
+      "name": "Marcela Kramer",
+      "email": "marcelabarretokramer10@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": 4,
+      "name": "Marcela Kramer",
+      "email": "marcelabarretokramer@hotmail.com",
+      "password": "123"
     }
   ],
   "clothing": [
@@ -22,7 +34,7 @@
       "color": "black",
       "material": "cotton",
       "imageIcon": "src/assets/cloth1.png",
-      "kit_id": 1
+      "kitId": 1
     },
     {
       "id": 2,
@@ -32,7 +44,7 @@
       "color": "blue",
       "material": "polyester",
       "imageIcon": "src/assets/cloth2.png",
-      "kit_id": 2
+      "kitId": 2
     },
     {
       "id": 3,
@@ -42,7 +54,7 @@
       "color": "red",
       "material": "spandex",
       "imageIcon": "src/assets/cloth3.png",
-      "kit_id": 3
+      "kitId": 3
     },
     {
       "id": 4,
@@ -52,9 +64,9 @@
       "color": "gray",
       "material": "nylon",
       "imageIcon": "src/assets/cloth4.png",
-      "kit_id": 1
-      },
-      {
+      "kitId": 1
+    },
+    {
       "id": 5,
       "description": "Green Reebok T-shirt",
       "brand": "Reebok",
@@ -62,7 +74,7 @@
       "color": "green",
       "material": "cotton",
       "imageIcon": "src/assets/cloth5.png",
-      "kit_id": 2
+      "kitId": 2
     },
     {
       "id": 6,
@@ -72,7 +84,7 @@
       "color": "black",
       "material": "spandex",
       "imageIcon": "src/assets/cloth6.png",
-      "kit_id": 3
+      "kitId": 3
     },
     {
       "id": 7,
@@ -82,7 +94,7 @@
       "color": "white",
       "material": "polyester",
       "imageIcon": "src/assets/cloth7.png",
-      "kit_id": 1
+      "kitId": 1
     },
     {
       "id": 8,
@@ -92,7 +104,7 @@
       "color": "purple",
       "material": "nylon",
       "imageIcon": "src/assets/cloth8.png",
-      "kit_id": 2
+      "kitId": 2
     },
     {
       "id": 9,
@@ -102,7 +114,7 @@
       "color": "orange",
       "material": "cotton",
       "imageIcon": "src/assets/cloth9.png",
-      "kit_id": 3
+      "kitId": 3
     },
     {
       "id": 10,
@@ -112,7 +124,7 @@
       "color": "yellow",
       "material": "spandex",
       "imageIcon": "src/assets/cloth10.png",
-      "kit_id": 1
+      "kitId": 1
     },
     {
       "id": 11,
@@ -122,7 +134,7 @@
       "color": "pink",
       "material": "polyester",
       "imageIcon": "src/assets/cloth11.png",
-      "kit_id": 2
+      "kitId": 2
     },
     {
       "id": 12,
@@ -132,7 +144,7 @@
       "color": "teal",
       "material": "nylon",
       "imageIcon": "src/assets/cloth12.png",
-      "kit_id": 3
+      "kitId": 3
     },
     {
       "id": 13,
@@ -142,7 +154,7 @@
       "color": "maroon",
       "material": "cotton",
       "imageIcon": "src/assets/cloth13.png",
-      "kit_id": 1
+      "kitId": 1
     },
     {
       "id": 14,
@@ -152,7 +164,7 @@
       "color": "navy",
       "material": "polyester",
       "imageIcon": "src/assets/cloth14.png",
-      "kit_id": 2
+      "kitId": 2
     },
     {
       "id": 15,
@@ -162,7 +174,7 @@
       "color": "brown",
       "material": "spandex",
       "imageIcon": "src/assets/cloth15.png",
-      "kit_id": 3
+      "kitId": 3
     },
     {
       "id": 16,
@@ -172,7 +184,7 @@
       "color": "burgundy",
       "material": "cotton",
       "imageIcon": "src/assets/cloth16.png",
-      "kit_id": 1
+      "kitId": 1
     }
   ],
   "plans": [
@@ -204,7 +216,7 @@
     {
       "id": 2,
       "name": "Workaholic",
-      "factor": 1.25 
+      "factor": 1.25
     },
     {
       "id": 3,

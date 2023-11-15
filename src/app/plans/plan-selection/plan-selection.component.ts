@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Plan } from 'src/app/shared/model/plan';
 import { PlanService } from 'src/app/shared/services/plan.service';
+import { KitService } from 'src/app/shared/services/kit.service';
+import { UserService } from 'src/app/shared/services/user.service';
+import { User } from 'src/app/shared/model/user';
 
 @Component({
   selector: 'app-plan-selection',
@@ -10,8 +14,10 @@ import { PlanService } from 'src/app/shared/services/plan.service';
 export class PlanSelectionComponent {
   plans: Plan[] = [];
   selectedPlan: Plan | null = null;
+  kitId: string = '';
+  user: User | null = null;
 
-  constructor(private planService: PlanService) {}
+  constructor(private planService: PlanService, private kitService: KitService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
       this.planService.getAll().subscribe(
@@ -19,7 +25,19 @@ export class PlanSelectionComponent {
           this.plans = response;
         }
       )
-      console.log(this.plans);
+      this.kitId = this.activatedRoute.snapshot.params['kitId'];
+      this.kitService.getByAny({key: 'id',  value: this.kitId}).subscribe(
+        response => {
+          const kit = response[0];
+          this.updatePrices(kit.factor);
+        }
+      );
+      const userId = (this.activatedRoute.snapshot.params['userId?']);
+      this.userService.getByAny({key: 'id', value: userId}).subscribe(
+        response => {
+          this.user = response[0];
+        }
+      )
   }
 
   toggleSelected(plan: Plan): void {
@@ -28,7 +46,6 @@ export class PlanSelectionComponent {
     } else {
       this.selectedPlan = plan;
     }
-    console.log(this.selectedPlan);
   }
 
   isSelected(plan: Plan): boolean {
@@ -38,4 +55,18 @@ export class PlanSelectionComponent {
   canContinue(): boolean {
     return this.selectedPlan !== null;
   }
+
+  updatePrices(factor: number): void {
+    this.plans.map((plan) => plan.basePrice = plan.basePrice * factor);
+    console.log(this.plans);
+  }
+
+  goToKits(): void {
+    this.router.navigate(['/kits', this.user?.id]);
+  }
+
+  goToClothes(): void {
+    this.router.navigate(['/clothes', this.kitId, this.selectedPlan?.id, this.user?.id])
+  }
+
 }

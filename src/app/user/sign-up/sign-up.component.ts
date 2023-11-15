@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/shared/model/user';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -11,7 +12,7 @@ export class SignUpComponent {
   hide = true;
   user = new User('', '', '', '');
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   onSubmit(): void {
     this.userService
@@ -21,7 +22,12 @@ export class SignUpComponent {
           alert(`Email ${this.user.email} já cadastrado`);
         } else {
           this.userService.create(this.user).subscribe();
+          this.goToSignIn();
         }
       });
+  }
+
+  goToSignIn(): void {
+    this.router.navigate(['/sign-in']);
   }
 }

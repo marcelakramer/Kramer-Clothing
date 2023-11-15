@@ -8,13 +8,13 @@ import { ClothingSelectionComponent } from './clothing/clothing-selection/clothi
 import { ThankYouComponent } from './layout/thank-you/thank-you.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/kits', pathMatch: 'full' },
-  { path: 'kits', component: KitMainPageComponent },
-  { path: 'plans', component: PlanMainPageComponent },
-  { path: 'clothes', component: ClothingSelectionComponent },
+  { path: '', redirectTo: '/kits/', pathMatch: 'full' },
+  { path: 'kits/:userId?', component: KitMainPageComponent },
+  { path: 'plans/:kitId/:userId?', component: PlanMainPageComponent },
+  { path: 'clothes/:kitId/:planId/:userId?', component: ClothingSelectionComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'thank-you', component: ThankYouComponent },
+  { path: 'thank-you/:userId', component: ThankYouComponent },
 ];
 
 @NgModule({

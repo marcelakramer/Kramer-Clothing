@@ -20,13 +20,15 @@ export class SignInComponent {
       .subscribe((found) => {
         if (found[0]) {
           if (found[0].password == this.password) {
-            this.router.navigate(['']);
+            this.router.navigate(['/kits', found[0].id]);
           }
         } else {
           alert(`Credenciais inválidas`);
         }
-
-        this.router.navigate(['thank-you']);
       });
+  }
+
+  goToSignUp(): void {
+    this.router.navigate(['/sign-up']);
   }
 }

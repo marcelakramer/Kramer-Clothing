@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Clothing } from 'src/app/shared/model/clothing';
 import { Plan } from 'src/app/shared/model/plan';
 import { Kit } from 'src/app/shared/model/kit';
 import { ClothingService } from 'src/app/shared/services/clothing.service';
+import { PlanService } from 'src/app/shared/services/plan.service';
+import { KitService } from 'src/app/shared/services/kit.service';
+import { UserService } from 'src/app/shared/services/user.service';
+import { User } from 'src/app/shared/model/user';
 @Component({
   selector: 'app-clothing-selection',
   templateUrl: './clothing-selection.component.html',
@@ -11,18 +16,48 @@ import { ClothingService } from 'src/app/shared/services/clothing.service';
 export class ClothingSelectionComponent implements OnInit{
   clothes: Clothing[] = [];
   selectedClothes: Clothing[] = [];
-  clothesRemaining: number = 5;
-  //plan: Plan;
-  //kit: Kit;
+  clothesRemaining: number = 0;
+  kit: Kit | null = null;
+  plan: Plan | null = null;
+  user: User | null = null;
 
-  constructor(private clothingService: ClothingService) {}
+  constructor(private clothingService: ClothingService, private planService: PlanService, private kitService: KitService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
+    const kitId = this.activatedRoute.snapshot.params['kitId'];
+    this.kitService.getByAny({key: 'id', value: kitId}).subscribe(
+      response => {
+        this.kit = response[0];
+      }
+    );
+
+    const planId = this.activatedRoute.snapshot.params['planId'];
+    this.planService.getByAny({key: 'id', value: planId}).subscribe(
+      response => {
+        this.plan = response[0];
+      }
+    );
+
+    const userId = (this.activatedRoute.snapshot.params['userId?']);
+    this.userService.getByAny({key: 'id', value: userId}).subscribe(
+      response => {
+        this.user = response[0];
+      }
+    );
+
+    if (kitId === '4') {
       this.clothingService.getAll().subscribe(
         response => {
           this.clothes = response;
           });
-        }
+    } else {
+      this.clothingService.getByAny({key: 'kitId', value: kitId}).subscribe(
+        response => {
+          this.clothes = response;
+          });
+    }
+    this.calcClothesRemaining();
+  }
 
   toggleSelected(clothing: Clothing): void {
     if (this.isSelected(clothing)) {
@@ -32,20 +67,33 @@ export class ClothingSelectionComponent implements OnInit{
     } else {
       this.selectedClothes.push(clothing);
     }
-    this.calcClothesRemaining()
-    console.log(this.selectedClothes);
+    this.calcClothesRemaining();
   }
 
   isSelected(clothing: Clothing): boolean {
     return this.selectedClothes.includes(clothing);
   }
 
+  isUnavailable(clothing: Clothing): boolean {
+    return !this.selectedClothes.includes(clothing) && this.canContinue();
+  }
+
   calcClothesRemaining(): void {
-    this.clothesRemaining = 5 - this.selectedClothes.length;
+    if (this.plan !== null) {
+      this.clothesRemaining = this.plan?.numOfClothes - this.selectedClothes.length;
+    }
   }
 
   canContinue(): boolean {
     return this.clothesRemaining === 0;
+  }
+
+  goToPlans(): void {
+    this.router.navigate(['plans', this.kit?.id, this.user?.id]);
+  }
+
+  goToFinalPage(): void {
+    this.router.navigate(['thank-you', this.user?.id]);
   }
 
 }
