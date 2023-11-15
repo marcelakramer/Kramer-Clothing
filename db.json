@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "b",
-      "email": "b",
-      "password": "b"
-    },
-    {
       "id": 2,
       "name": "b",
       "email": "bc",

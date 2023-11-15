@@ -1,0 +1,20 @@
+<!-- profile.component.html -->
+
+<div>
+  <h2>Perfil do Usuário</h2>
+
+  <div>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" [(ngModel)]="user.name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="user.email">
+
+    <label for="password">Senha:</label>
+    <input type="password" id="password" [(ngModel)]="user.password">
+
+    <button (click)="saveChanges()">Salvar Alterações</button>
+    <button (click)="deleteAccount()">Excluir Conta</button>
+  </div>
+</div>

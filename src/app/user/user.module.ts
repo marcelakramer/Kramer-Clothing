@@ -8,11 +8,13 @@ import {MatButtonModule} from '@angular/material/button';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { FormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     SignInComponent,
     SignUpComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { FormsModule } from '@angular/forms';
   exports: [
     SignInComponent,
     SignUpComponent,
+    ProfileComponent
   ]
 })
 export class UserModule { }
