@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
   hide = true;
   userId: string = ``;
   user: User = new User(``,``,``,``, [''])
+  hasInfoChanged: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService) {
 
@@ -31,8 +32,13 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  onInputChange() {
+    this.hasInfoChanged = true;
+  }
+
   saveChanges() {
     this.userService.update(this.user).subscribe();
+    this.hasInfoChanged = false;
   }
 
   deleteAccount() {

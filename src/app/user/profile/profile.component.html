@@ -6,17 +6,17 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Username</mat-label>
-        <input type="username" matInput name="username" [(ngModel)]="user.name">
+        <input type="username" matInput name="username" [(ngModel)]="user.name" (ngModelChange)="onInputChange()">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
-        <input type="email" matInput name="email" [(ngModel)]="user.email">
+        <input type="email" matInput name="email" [(ngModel)]="user.email" (ngModelChange)="onInputChange()">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
-        <input type="password" [type]="hide ? 'password' : 'text'" matInput name="password" [(ngModel)]="user.password">
+        <input type="password" [type]="hide ? 'password' : 'text'" matInput name="password" [(ngModel)]="user.password" (ngModelChange)="onInputChange()">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -24,7 +24,7 @@
       </mat-form-field>
       <mat-card-actions>
           <button mat-raised-button color="primary" (click)="goToOrders()">Orders</button>
-          <button mat-raised-button color="primary" (click)="saveChanges()">Save</button>
+          <button mat-raised-button color="primary" class="save" (click)="saveChanges()" [ngClass]="{ 'enabled': hasInfoChanged }">Save</button>
           <button mat-raised-button color="primary" (click)="logOut()">Sign Out</button>
           <button mat-raised-button color="primary" (click)="deleteAccount()">Delete</button>
       </mat-card-actions>  

@@ -30,6 +30,16 @@ mat-form-field {
 button {
     font-weight: 700;
     font-family: 'Nunito';
+
+    &.save {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    &.enabled {
+        opacity: 1;
+        pointer-events: all;
+    }
 }
 
 mat-card-actions {
