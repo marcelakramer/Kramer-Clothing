@@ -79,6 +79,7 @@ export class PlanSelectionComponent {
   }
 
   goToKits(): void {
+    this.orderService.delete(this.order).subscribe();
     this.router.navigate(['/kits', this.user?.id]);
   }
 
