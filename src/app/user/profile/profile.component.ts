@@ -12,7 +12,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class ProfileComponent implements OnInit {
   hide = true;
   userId: string = ``;
-  user: User = new User(``,``,``,``, [''])
+  user: User = new User(``,``,``,``)
   hasInfoChanged: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService, private orderService: OrderService) {

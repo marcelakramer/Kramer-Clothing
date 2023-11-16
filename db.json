@@ -10,19 +10,19 @@
       "id": 2,
       "name": "ariana grande",
       "email": "ariana@gmail.com",
-      "password": "123",
-      "ordersIds": [
-        ""
-      ]
+      "password": "123"
     },
     {
       "id": 3,
       "name": "Gustavo Wagner",
       "email": "gugawag@gmail.com",
-      "password": "123",
-      "ordersIds": [
-        ""
-      ]
+      "password": "123"
+    },
+    {
+      "id": 4,
+      "name": "Marcela Kramer",
+      "email": "ariana@gmail.co",
+      "password": "123"
     }
   ],
   "orders": [],
