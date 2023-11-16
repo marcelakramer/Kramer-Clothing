@@ -2,20 +2,8 @@
   "users": [
     {
       "id": 2,
-      "name": "b",
-      "email": "bc",
-      "password": "b"
-    },
-    {
-      "id": 3,
-      "name": "Marcela Kramer",
-      "email": "marcelabarretokramer10@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": 4,
-      "name": "Marcela Kramer",
-      "email": "marcelabarretokramer@hotmail.com",
+      "name": "Lays Gabrielle",
+      "email": "laysgabrielle@gmail.com",
       "password": "123"
     }
   ],

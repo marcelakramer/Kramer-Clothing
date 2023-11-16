@@ -1,20 +1,32 @@
-<!-- profile.component.html -->
-
 <div>
-  <h2>Perfil do Usuário</h2>
+  <mat-card class="profile-card">
+    <mat-card-content>
+      <img class="return" (click)="goBack()" src="../../../assets/icons/return.svg" alt="return">
+      <img class="user" src="../../../assets/images/user/user.svg" alt="user">
 
-  <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input type="username" matInput name="username" [(ngModel)]="user.name">
+      </mat-form-field>
 
-    <label for="username">Username:</label>
-    <input type="text" id="username" [(ngModel)]="user.name">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput name="email" [(ngModel)]="user.email">
+      </mat-form-field>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" [(ngModel)]="user.email">
-
-    <label for="password">Senha:</label>
-    <input type="password" id="password" [(ngModel)]="user.password">
-
-    <button (click)="saveChanges()">Salvar Alterações</button>
-    <button (click)="deleteAccount()">Excluir Conta</button>
-  </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" [type]="hide ? 'password' : 'text'" matInput name="password" [(ngModel)]="user.password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+      </mat-form-field>
+      <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="saveChanges()">Salvar</button>
+          <button mat-raised-button color="primary" (click)="logOut()">Sair</button>
+          <button mat-raised-button color="primary" (click)="deleteAccount()">Excluir</button>
+      </mat-card-actions>  
+    </mat-card-content>
+  </mat-card>
 </div>

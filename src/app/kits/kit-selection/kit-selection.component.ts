@@ -15,12 +15,12 @@ export class KitSelectionComponent implements OnInit{
   selectedKit: Kit | null = null;
   user: User | null = null;
 
-  isUsserLoggedIn = false;
+  isUserLoggedIn = false;
 
   constructor(private kitService: KitService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-      this.isUsserLoggedIn = this.userService.isLoggedIn();
+      this.isUserLoggedIn = this.userService.isLoggedIn();
       this.kitService.getAll().subscribe(
         response => {
           this.kits = response;
@@ -48,6 +48,6 @@ export class KitSelectionComponent implements OnInit{
   }
 
   goToSignIn(): void {
-    this.router.navigate(['/sign-in'])
+    this.router.navigate(['/sign-in']);
   }
 }

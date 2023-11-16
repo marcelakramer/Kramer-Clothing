@@ -22,7 +22,7 @@ export class LoggedHeaderComponent implements OnInit {
       )
   }
 
-  profile() {
+  goToProfile() {
     this.router.navigate(['/profile', this.user?.id])
   }
 }

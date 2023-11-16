@@ -24,7 +24,7 @@ export class SignInComponent {
             this.router.navigate(['/kits', found[0].id]);
           }
         } else {
-          alert(`Credenciais inválidas`);
+          alert(`Credenciais inválidas.`);
         }
       });
   }

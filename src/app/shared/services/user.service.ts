@@ -28,14 +28,13 @@ export class UserService {
     return this.http.put<User>(`${this.baseUrl}/${user.id}`, user);
   }
 
-
-
   delete(user: User) {
     return this.http.delete<User>(`${this.baseUrl}/${user.id}`);
   }
 
   changeLoggedIn(bool: boolean) {
     this.islogged = bool;
+    console.log(this.islogged);
   }
 
   isLoggedIn(): boolean {
