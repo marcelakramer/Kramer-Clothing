@@ -34,7 +34,6 @@ export class UserService {
 
   changeLoggedIn(bool: boolean) {
     this.islogged = bool;
-    console.log(this.islogged);
   }
 
   isLoggedIn(): boolean {

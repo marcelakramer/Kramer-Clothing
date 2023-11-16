@@ -38,6 +38,7 @@ export class ProfileComponent implements OnInit {
   deleteAccount() {
     this.router.navigate(['']);
     this.userService.delete(this.user).subscribe();
+    this.userService.changeLoggedIn(false);
   }
 
   goBack() {
