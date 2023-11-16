@@ -7,6 +7,7 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { ClothingSelectionComponent } from './clothing/clothing-selection/clothing-selection.component';
 import { ThankYouComponent } from './layout/thank-you/thank-you.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { ListagemComponent } from './user/listagem/listagem.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/kits/', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'thank-you/:userId', component: ThankYouComponent },
-  { path: 'profile/:userId', component: ProfileComponent }
+  { path: 'profile/:userId', component: ProfileComponent },
+  { path: 'users-table', component: ListagemComponent}
 ];
 
 @NgModule({
