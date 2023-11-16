@@ -11,7 +11,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class ProfileComponent implements OnInit {
   hide = true;
   userId: string = ``;
-  user: User = new User(``,``,``,``)
+  user: User = new User(``,``,``,``, [''])
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService) {
 
@@ -43,6 +43,10 @@ export class ProfileComponent implements OnInit {
 
   goBack() {
     this.router.navigate(['/kits', this.userId]);
+  }
+
+  goToOrders() {
+    this.router.navigate(['/orders', this.user.id]);
   }
 
   logOut() {

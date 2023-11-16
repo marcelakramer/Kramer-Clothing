@@ -1,10 +1,23 @@
 {
   "users": [
     {
-      "id": 3,
+      "id": 1,
       "name": "sergio",
       "email": "sergio@gmail.com",
       "password": "sergio"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "date": "Thu Nov 16 2023",
+      "devolutionDate": "Sat Dec 16 2023",
+      "status": "On time",
+      "price": 400,
+      "kitId": 4,
+      "planId": 3,
+      "clothesIds": [],
+      "userId": 1
     }
   ],
   "clothing": [
