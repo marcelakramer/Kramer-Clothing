@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { OrderListingComponent } from './order-listing/order-listing.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -13,7 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   exports: [
     OrderListingComponent

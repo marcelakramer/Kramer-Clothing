@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/shared/model/user';
+import { OrderService } from 'src/app/shared/services/order.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -14,12 +15,12 @@ export class ProfileComponent implements OnInit {
   user: User = new User(``,``,``,``, [''])
   hasInfoChanged: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService, private orderService: OrderService) {
 
   }
 
   ngOnInit(): void {
-      this.userId = this.activatedRoute.snapshot.params['userId']
+      this.userId = this.activatedRoute.snapshot.params['userId'];
 
       this.userService.getAll().subscribe(users => {
         for(let userFound of users) {
@@ -27,9 +28,7 @@ export class ProfileComponent implements OnInit {
             this.user = userFound;
           }
         }
-      })
-
-
+      });
   }
 
   onInputChange() {

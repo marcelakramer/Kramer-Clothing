@@ -5,76 +5,27 @@
       "name": "sergio",
       "email": "sergio@gmail.com",
       "password": "sergio"
-    }
-  ],
-  "orders": [
-    {
-      "id": 1,
-      "date": "Thu Nov 16 2023",
-      "devolutionDate": "Sat Dec 16 2023",
-      "status": "On time",
-      "price": 400,
-      "kitId": 4,
-      "planId": 3,
-      "clothesIds": [],
-      "userId": 1
     },
     {
       "id": 2,
-      "date": "Thu Nov 16 2023",
-      "devolutionDate": "Thu Nov 23 2023",
-      "status": "On time",
-      "price": 50,
-      "kitId": 1,
-      "planId": 1,
-      "clothesIds": [],
-      "userId": 1
+      "name": "ariana grande",
+      "email": "ariana@gmail.com",
+      "password": "123",
+      "ordersIds": [
+        ""
+      ]
     },
     {
       "id": 3,
-      "date": "Thu Nov 16 2023",
-      "devolutionDate": "Thu Nov 23 2023",
-      "status": "On time",
-      "price": 100,
-      "kitId": 4,
-      "planId": 1,
-      "clothesIds": [
-        1,
-        6,
-        7,
-        2,
-        3,
-        8,
-        9,
-        4,
-        5,
-        10
-      ],
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "date": "Thu Nov 16 2023",
-      "devolutionDate": "Thu Nov 23 2023",
-      "status": "On time",
-      "price": 100,
-      "kitId": 4,
-      "planId": 1,
-      "clothesIds": [],
-      "userId": 1
-    },
-    {
-      "id": 5,
-      "date": "Thu Nov 16 2023",
-      "devolutionDate": "Thu Nov 23 2023",
-      "status": "On time",
-      "price": 100,
-      "kitId": 4,
-      "planId": 1,
-      "clothesIds": [],
-      "userId": 1
+      "name": "Gustavo Wagner",
+      "email": "gugawag@gmail.com",
+      "password": "123",
+      "ordersIds": [
+        ""
+      ]
     }
   ],
+  "orders": [],
   "clothing": [
     {
       "id": 1,
