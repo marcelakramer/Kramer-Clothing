@@ -2,30 +2,30 @@
   "users": [
     {
       "id": 1,
-      "name": "sergio",
-      "email": "sergio@gmail.com",
-      "password": "sergio"
-    },
-    {
-      "id": 2,
-      "name": "ariana grande",
-      "email": "ariana@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": 3,
-      "name": "Gustavo Wagner",
-      "email": "gugawag@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": 4,
-      "name": "Marcela Kramer",
-      "email": "ariana@gmail.co",
+      "name": "Ariana Grande",
+      "email": "arianagrande@gmail.com",
       "password": "123"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": 1,
+      "date": "Thu Nov 16 2023",
+      "devolutionDate": "Thu Nov 23 2023",
+      "status": "On time",
+      "price": 100,
+      "kitId": 4,
+      "planId": 1,
+      "clothesIds": [
+        2,
+        3,
+        1,
+        8,
+        4
+      ],
+      "userId": 1
+    }
+  ],
   "clothing": [
     {
       "id": 1,
@@ -193,19 +193,19 @@
       "id": 1,
       "duration": 7,
       "basePrice": 50,
-      "numOfClothes": 10
+      "numOfClothes": 5
     },
     {
       "id": 2,
       "duration": 15,
       "basePrice": 100,
-      "numOfClothes": 20
+      "numOfClothes": 7
     },
     {
       "id": 3,
       "duration": 30,
       "basePrice": 200,
-      "numOfClothes": 40
+      "numOfClothes": 10
     }
   ],
   "kits": [
