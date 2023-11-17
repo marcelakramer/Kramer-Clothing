@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/shared/services/user.service';
 
 
 @Component({
@@ -10,12 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 export class KitMainPageComponent implements OnInit {
   isLogged: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-      const userId = (this.activatedRoute.snapshot.params['userId?']);
-      if (userId) {
-        this.isLogged = true;
-      }
+    this.isLogged = this.userService.isLoggedIn();
   }
 }
