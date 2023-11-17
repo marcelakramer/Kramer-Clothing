@@ -12,8 +12,6 @@ export class InitialSectionComponent {
   }
 
   goToSignUp() {
-    console.log("uepa");
-    
     this.router.navigate(['/sign-up'])
   }
 }

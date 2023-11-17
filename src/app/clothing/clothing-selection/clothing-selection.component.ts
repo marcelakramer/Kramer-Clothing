@@ -34,11 +34,9 @@ export class ClothingSelectionComponent implements OnInit{
       this.orderService.getByAny({key: 'id',  value: orderId}).subscribe(
         response => {
           this.order = response[0];
-          console.log(typeof(this.order.kitId));
           this.kitService.getByAny({key: 'id',  value: this.order.kitId}).subscribe(
             response => {
               this.kit = response[0];
-              console.log(this.kit)
             }
           );
           this.planService.getByAny({key: 'id',  value: this.order.planId}).subscribe(
