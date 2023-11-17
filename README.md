@@ -1,27 +1,35 @@
-# KramerCluthing
+# Kramer Clothing - Plataforma de Pedidos de Roupas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
+## Descrição
+O Kramer Clothing é uma aplicação web desenvolvida em Angular que permite aos usuários fazerem pedidos de roupas, escolhendo entre uma variedade de kits e planos disponíveis.
 
-## Development server
+## Funcionalidades
+- **Catálogo de Kits:** Explore uma ampla seleção de kits de roupas disponíveis.
+- **Opções de Planos:** Escolha entre diferentes planos de assinatura para atender às suas necessidades.
+- **Pedidos Personalizados:** Personalize seus pedidos selecionando roupas específicas e ajustando os detalhes conforme desejado.
+- **Histórico de Pedidos:** Acompanhe seus pedidos anteriores e visualize detalhes, incluindo datas de entrega, status e mais.
+- **Integração de Pagamento:** Faça pagamentos de forma segura e conveniente diretamente na plataforma.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Como Usar
+1. **Clone o Repositório:**
+```bash
+git clone https://github.com/seu-usuario/kramer-clothing.git
+```
 
-## Code scaffolding
+2. **Instale as Dependências:**
+```bash
+cd kramer-clothing
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. **Inicie o Servidor de Desenvolvimento:**
+```bash
+ng serve
+```
 
-## Build
+4. **Acesse a Aplicação:**
+Abra seu navegador e vá para http://localhost:4200/.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Faça Seu Pedido:
+Explore o catálogo, escolha seu kit, selecione um plano e faça seu pedido!
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

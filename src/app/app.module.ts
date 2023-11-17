@@ -10,6 +10,7 @@ import { KitsModule } from './kits/kits.module';
 import { PlansModule } from './plans/plans.module';
 import { ClothingModule } from './clothing/clothing.module';
 import { LayoutModule } from './layout/layout.module';
+import { OrderModule } from './order/order.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { LayoutModule } from './layout/layout.module';
     KitsModule,
     PlansModule,
     ClothingModule,
-    LayoutModule
+    LayoutModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

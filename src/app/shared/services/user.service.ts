@@ -25,11 +25,11 @@ export class UserService {
   }
 
   update(user: User) {
-    return this.http.put<User>(`${this.baseUrl}/user/${user.email}`, user);
+    return this.http.put<User>(`${this.baseUrl}/${user.id}`, user);
   }
 
   delete(user: User) {
-    return this.http.delete<User>(`${this.baseUrl}/user/${user.email}`);
+    return this.http.delete<User>(`${this.baseUrl}/${user.id}`);
   }
 
   changeLoggedIn(bool: boolean) {

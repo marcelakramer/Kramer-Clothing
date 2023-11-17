@@ -7,7 +7,9 @@ import { ClothingService } from 'src/app/shared/services/clothing.service';
 import { PlanService } from 'src/app/shared/services/plan.service';
 import { KitService } from 'src/app/shared/services/kit.service';
 import { UserService } from 'src/app/shared/services/user.service';
+import { OrderService } from 'src/app/shared/services/order.service';
 import { User } from 'src/app/shared/model/user';
+import { Order } from 'src/app/shared/model/order';
 @Component({
   selector: 'app-clothing-selection',
   templateUrl: './clothing-selection.component.html',
@@ -17,30 +19,47 @@ export class ClothingSelectionComponent implements OnInit{
   clothes: Clothing[] = [];
   selectedClothes: Clothing[] = [];
   clothesRemaining: number | undefined;
+  order: Order = new Order('', '', '', '', 0, '', '', [], '');
   kit: Kit | null = null;
   plan: Plan | null = null;
   user: User | null = null;
 
-  constructor(private clothingService: ClothingService, private planService: PlanService, private kitService: KitService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private clothingService: ClothingService, private orderService: OrderService, private planService: PlanService, private kitService: KitService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
 
   }
 
   ngOnInit(): void {
 
-    const kitId = this.activatedRoute.snapshot.params['kitId'];
-    this.kitService.getByAny({key: 'id', value: kitId}).subscribe(
-      response => {
-        this.kit = response[0];
-      }
-    );
+    const orderId = this.activatedRoute.snapshot.params['orderId'];
+      this.orderService.getByAny({key: 'id',  value: orderId}).subscribe(
+        response => {
+          this.order = response[0];
+          this.kitService.getByAny({key: 'id',  value: this.order.kitId}).subscribe(
+            response => {
+              this.kit = response[0];
+            }
+          );
+          this.planService.getByAny({key: 'id',  value: this.order.planId}).subscribe(
+            response => {
+              this.plan = response[0];
+            }
+          );
 
-    const planId = this.activatedRoute.snapshot.params['planId'];
-    this.planService.getByAny({key: 'id', value: planId}).subscribe(
-      response => {
-        this.plan = response[0];
-        this.calcClothesRemaining();
-      }
-    );
+          if (this.order.kitId.toString() === '4') {
+            this.clothingService.getAll().subscribe(
+              response => {
+                this.clothes = response;
+                this.calcClothesRemaining();
+              });
+          } else {
+            this.clothingService.getByAny({key: 'kitId', value: this.order.kitId.toString()}).subscribe(
+              response => {
+                this.clothes = response;
+                this.calcClothesRemaining();
+              });
+          }
+        }
+      );
 
     const userId = (this.activatedRoute.snapshot.params['userId?']);
     this.userService.getByAny({key: 'id', value: userId}).subscribe(
@@ -48,19 +67,6 @@ export class ClothingSelectionComponent implements OnInit{
         this.user = response[0];
       }
     );
-
-    if (kitId === '4') {
-      this.clothingService.getAll().subscribe(
-        response => {
-          this.clothes = response;
-          });
-    } else {
-      this.clothingService.getByAny({key: 'kitId', value: kitId}).subscribe(
-        response => {
-          this.clothes = response;
-          });
-    }
-    this.calcClothesRemaining();
   }
 
   toggleSelected(clothing: Clothing): void {
@@ -92,11 +98,18 @@ export class ClothingSelectionComponent implements OnInit{
     return this.clothesRemaining === 0;
   }
 
+  updateOrder(): void {
+    const clothesIds = this.selectedClothes.map(clothing => clothing.id);
+    this.order.clothesIds = clothesIds;
+    this.orderService.update(this.order).subscribe();
+  }
+
   goToPlans(): void {
-    this.router.navigate(['plans', this.kit?.id, this.user?.id]);
+    this.router.navigate(['plans', this.order.id, this.user?.id]);
   }
 
   goToFinalPage(): void {
+    this.updateOrder();
     this.router.navigate(['thank-you', this.user?.id]);
   }
 
