@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/shared/model/user';
-import { UserService } from 'src/app/shared/services/user.service';
+import { UserFirestoreService } from 'src/app/shared/services/user-firestore.service';
 
 @Component({
   selector: 'app-listagem',
@@ -12,12 +12,12 @@ export class ListagemComponent implements OnInit {
   dataSource: MatTableDataSource<User>;
   colunasVisiveis = ['name', 'email']
 
-  constructor(private userService: UserService) {
+  constructor(private userFireStoreService: UserFirestoreService) {
     this.dataSource = new MatTableDataSource<User>();
   }
 
   ngOnInit(): void {
-    this.userService.getAll().subscribe(users => {
+    this.userFireStoreService.getAll().subscribe(users => {
       this.dataSource = new MatTableDataSource<User>(users);
     })
   }

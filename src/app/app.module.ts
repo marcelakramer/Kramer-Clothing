@@ -11,6 +11,7 @@ import { PlansModule } from './plans/plans.module';
 import { ClothingModule } from './clothing/clothing.module';
 import { LayoutModule } from './layout/layout.module';
 import { OrderModule } from './order/order.module';
+import { FirestoreModule } from './firestore/firestore.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { OrderModule } from './order/order.module';
     PlansModule,
     ClothingModule,
     LayoutModule,
-    OrderModule
+    OrderModule,
+    FirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
