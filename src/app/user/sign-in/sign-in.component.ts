@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -23,10 +25,18 @@ export class SignInComponent {
             this.userService.changeLoggedIn(true)
             this.router.navigate(['/kits', found[0].id]);
           } else {
-            alert(`Credenciais inválidas.`)
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Invalid credentials."}
+              );
           }
         } else {
-          alert(`Credenciais inválidas.`);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Invalid credentials."}
+            );;
         }
       });
   }

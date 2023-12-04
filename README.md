@@ -8,7 +8,6 @@ O Kramer Clothing é uma aplicação web desenvolvida em Angular que permite aos
 - **Opções de Planos:** Escolha entre diferentes planos de assinatura para atender às suas necessidades.
 - **Pedidos Personalizados:** Personalize seus pedidos selecionando roupas específicas e ajustando os detalhes conforme desejado.
 - **Histórico de Pedidos:** Acompanhe seus pedidos anteriores e visualize detalhes, incluindo datas de entrega, status e mais.
-- **Integração de Pagamento:** Faça pagamentos de forma segura e conveniente diretamente na plataforma.
 
 ## Como Usar
 1. **Clone o Repositório:**

@@ -10,6 +10,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { User } from 'src/app/shared/model/user';
 import { Order } from 'src/app/shared/model/order';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-clothing-selection',
   templateUrl: './clothing-selection.component.html',
@@ -42,6 +43,7 @@ export class ClothingSelectionComponent implements OnInit{
           this.planService.getByAny({key: 'id',  value: this.order.planId}).subscribe(
             response => {
               this.plan = response[0];
+              console.log(response[0]);
             }
           );
 
@@ -73,7 +75,11 @@ export class ClothingSelectionComponent implements OnInit{
     if (this.isSelected(clothing)) {
       this.selectedClothes = this.selectedClothes.filter((c) => c !== clothing);
     } else if (this.clothesRemaining === 0) {
-      alert("There are no remaining clothes to choose.");
+      Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "There are no remaining clothes to choose."}
+      );
     } else {
       this.selectedClothes.push(clothing);
     }
@@ -90,8 +96,12 @@ export class ClothingSelectionComponent implements OnInit{
 
   calcClothesRemaining(): void {
     if (this.plan !== null) {
+      console.log("entrei aqui");
+      console.log(this.plan?.numOfClothes)
+      console.log(this.selectedClothes.length)
       this.clothesRemaining = this.plan?.numOfClothes - this.selectedClothes.length;
     }
+    console.log(this.clothesRemaining);
   }
 
   canContinue(): boolean {

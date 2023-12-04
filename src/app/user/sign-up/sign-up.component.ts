@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/model/user';
 import { UserService } from 'src/app/shared/services/user.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -19,7 +21,11 @@ export class SignUpComponent {
       .getByAny({ key: 'email', value: this.user.email })
       .subscribe((found) => {
         if (found.length > 0) {
-          alert(`Email ${this.user.email} já cadastrado`);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Email address already registered."}
+            );
         } else {
           this.userService.create(this.user).subscribe();
           this.goToSignIn();

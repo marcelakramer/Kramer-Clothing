@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/kits/', pathMatch: 'full' },
   { path: 'kits/:userId?', component: KitMainPageComponent },
   { path: 'plans/:orderId/:userId?', component: PlanMainPageComponent },
-  { path: 'clothes/:orderId/:userId?', component: ClothingSelectionComponent },
+  { path: 'clothing/:orderId/:userId?', component: ClothingSelectionComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'thank-you/:userId', component: ThankYouComponent },
