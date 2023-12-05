@@ -19,21 +19,28 @@ export class UserFirestoreService {
     return this.userCollection.valueChanges({idField: 'id'});
   }
 
-//   getByAny(item: { key: string; value: string }): Observable<User[]> {
-//     return this.http.get<User[]>(`${this.baseUrl}?${item.key}=${item.value}`);
-//   }
+  getByEmail(email: string): Observable<User[]> {
+    let userByAny: AngularFirestoreCollection<User>;
+    userByAny = this.afs.collection(this.COLLECTION_NAME, ref =>
+      ref.where(`email`, '==', email)
+    );
 
-//   create(user: User) {
-//     return this.http.post<User>(`${this.baseUrl}`, user);
-//   }
+    return userByAny.get().pipe(
+      map(snapshot => snapshot.docs.map(doc => doc.data()))
+    );
+  }
 
-//   update(user: User) {
-//     return this.http.put<User>(`${this.baseUrl}/${user.id}`, user);
-//   }
+  create(user: User): Observable<object> {
+    return from(this.userCollection.add(Object.assign({}, user)));
+  }
 
-//   delete(user: User) {
-//     return this.http.delete<User>(`${this.baseUrl}/${user.id}`);
-//   }
+  update(user: User): Observable<void> {
+    return from(this.userCollection.doc(user.id).update({...user}));
+  }
+
+  delete(user: User) {
+    return from(this.userCollection.doc(user.id).delete())
+  }
 
   changeLoggedIn(bool: boolean) {
     this.islogged = bool;

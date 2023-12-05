@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
+import {UserFirestoreService} from "../../shared/services/user-firestore.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -12,11 +13,11 @@ export class SignInComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserFirestoreService, private router: Router) {}
 
   onSubmit(): void {
     this.userService
-      .getByAny({ key: 'email', value: this.email })
+      .getByEmail(this.email)
       .subscribe((found) => {
         if (found[0]) {
           if (found[0].password == this.password) {
