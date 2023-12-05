@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Plan } from 'src/app/shared/model/plan';
-import { PlanService } from 'src/app/shared/services/plan.service';
-import { OrderService } from 'src/app/shared/services/order.service';
-import { UserService } from 'src/app/shared/services/user.service';
-import { User } from 'src/app/shared/model/user';
-import { Order } from 'src/app/shared/model/order';
-import { KitService } from 'src/app/shared/services/kit.service';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Plan} from 'src/app/shared/model/plan';
+import {PlanService} from 'src/app/shared/services/plan.service';
+import {OrderService} from 'src/app/shared/services/order.service';
+import {UserService} from 'src/app/shared/services/user.service';
+import {User} from 'src/app/shared/model/user';
+import {Order} from 'src/app/shared/model/order';
+import {KitService} from 'src/app/shared/services/kit.service';
+import {PlanFirestoreService} from "../../shared/services/plan-firestore.service";
+import {OrderFirestoreService} from "../../shared/services/order-firestore.service";
+import {UserFirestoreService} from "../../shared/services/user-firestore.service";
+import {KitFirestoreService} from "../../shared/services/kit-firestore.service";
 
 @Component({
   selector: 'app-plan-selection',
@@ -19,32 +23,33 @@ export class PlanSelectionComponent {
   order: Order = new Order('', '', '', '', 0, '', '', [], '');
   user: User | null = null;
 
-  constructor(private planService: PlanService, private orderService: OrderService, private userService: UserService, private kitService: KitService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private planService: PlanFirestoreService, private orderService: OrderFirestoreService, private userService: UserFirestoreService, private kitService: KitFirestoreService, private activatedRoute: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit(): void {
-      this.planService.getAll().subscribe(
-        response => {
-          this.plans = response;
-        }
-      )
-      const orderId = this.activatedRoute.snapshot.params['orderId'];
-      this.orderService.getByAny({key: 'id',  value: orderId}).subscribe(
-        response => {
-          this.order = response[0];
-          this.kitService.getByAny({key: 'id',  value: this.order.kitId}).subscribe(
-            response => {
-              const kit = response[0];
-              this.updatePrices(kit.factor);
-            }
-          )
-        }
-      );
-      const userId = (this.activatedRoute.snapshot.params['userId?']);
-      this.userService.getByAny({key: 'id', value: userId}).subscribe(
-        response => {
-          this.user = response[0];
-        }
-      )
+    this.planService.getAll().subscribe(
+      response => {
+        this.plans = response;
+      }
+    )
+    const orderId = this.activatedRoute.snapshot.params['orderId'];
+    this.orderService.getByAny({key: 'id', value: orderId}).subscribe(
+      response => {
+        this.order = response[0];
+        this.kitService.getByAny({key: 'id', value: this.order.kitId}).subscribe(
+          response => {
+            const kit = response[0];
+            this.updatePrices(kit.factor);
+          }
+        )
+      }
+    );
+    const userId = (this.activatedRoute.snapshot.params['userId?']);
+    this.userService.getByAny({key: 'id', value: userId}).subscribe(
+      response => {
+        this.user = response[0];
+      }
+    )
   }
 
   toggleSelected(plan: Plan): void {

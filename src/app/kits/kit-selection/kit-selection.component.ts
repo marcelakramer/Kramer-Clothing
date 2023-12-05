@@ -6,6 +6,9 @@ import { User } from 'src/app/shared/model/user';
 import { KitService } from 'src/app/shared/services/kit.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { OrderService } from 'src/app/shared/services/order.service';
+import {KitFirestoreService} from "../../shared/services/kit-firestore.service";
+import {UserFirestoreService} from "../../shared/services/user-firestore.service";
+import {OrderFirestoreService} from "../../shared/services/order-firestore.service";
 
 @Component({
   selector: 'app-kit-selection',
@@ -20,7 +23,7 @@ export class KitSelectionComponent implements OnInit{
 
   isUserLoggedIn = false;
 
-  constructor(private kitService: KitService, private userService: UserService, private orderService: OrderService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private kitService: KitFirestoreService, private userService: UserFirestoreService, private orderService: OrderFirestoreService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
       this.isUserLoggedIn = this.userService.isLoggedIn();

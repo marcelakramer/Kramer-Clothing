@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/shared/model/user';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { UserService } from 'src/app/shared/services/user.service';
+import {UserFirestoreService} from "../../shared/services/user-firestore.service";
+import {OrderFirestoreService} from "../../shared/services/order-firestore.service";
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +17,7 @@ export class ProfileComponent implements OnInit {
   user: User = new User(``,``,``,``)
   hasInfoChanged: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService, private orderService: OrderService) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private userService: UserFirestoreService, private orderService: OrderFirestoreService) {
 
   }
 

@@ -17,7 +17,7 @@ export class SignUpComponent {
 
   onSubmit(): void {
     this.userService
-      .getByEmail(this.user.email)
+      .getByAny({key: "email", value: this.user.email})
       .subscribe((found) => {
         console.log(found);
         if (found && found.length > 0) {

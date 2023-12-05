@@ -10,6 +10,11 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { User } from 'src/app/shared/model/user';
 import { Order } from 'src/app/shared/model/order';
+import {ClothingFirestoreService} from "../../shared/services/clothing-firestore.service";
+import {OrderFirestoreService} from "../../shared/services/order-firestore.service";
+import {PlanFirestoreService} from "../../shared/services/plan-firestore.service";
+import {KitFirestoreService} from "../../shared/services/kit-firestore.service";
+import {UserFirestoreService} from "../../shared/services/user-firestore.service";
 @Component({
   selector: 'app-clothing-selection',
   templateUrl: './clothing-selection.component.html',
@@ -24,7 +29,7 @@ export class ClothingSelectionComponent implements OnInit{
   plan: Plan | null = null;
   user: User | null = null;
 
-  constructor(private clothingService: ClothingService, private orderService: OrderService, private planService: PlanService, private kitService: KitService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private clothingService: ClothingFirestoreService, private orderService: OrderFirestoreService, private planService: PlanFirestoreService, private kitService: KitFirestoreService, private userService: UserFirestoreService, private activatedRoute: ActivatedRoute, private router: Router) {
 
   }
 

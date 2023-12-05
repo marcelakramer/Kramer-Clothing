@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { UserService } from 'src/app/shared/services/user.service';
+import {UserFirestoreService} from "../../shared/services/user-firestore.service";
 
 
 @Component({
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class KitMainPageComponent implements OnInit {
   isLogged: boolean = false;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserFirestoreService) {}
 
   ngOnInit(): void {
     this.isLogged = this.userService.isLoggedIn();

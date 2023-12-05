@@ -19,10 +19,10 @@ export class UserFirestoreService {
     return this.userCollection.valueChanges({idField: 'id'});
   }
 
-  getByEmail(email: string): Observable<User[]> {
+  getByAny(item: { key: string; value: string }): Observable<User[]> {
     let userByAny: AngularFirestoreCollection<User>;
     userByAny = this.afs.collection(this.COLLECTION_NAME, ref =>
-      ref.where(`email`, '==', email)
+      ref.where(item.key, '==', item.value)
     );
 
     return userByAny.get().pipe(
