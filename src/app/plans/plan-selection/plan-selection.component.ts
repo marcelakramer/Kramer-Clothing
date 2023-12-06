@@ -32,7 +32,6 @@ export class PlanSelectionComponent {
   ngOnInit(): void {
     this.planService.getAll().subscribe(
       response => {
-        console.log(2);
         this.plans = response;
       }
     )
@@ -49,7 +48,7 @@ export class PlanSelectionComponent {
         )
       }
     );
-    const userId = (this.activatedRoute.snapshot.params['userId']);
+    const userId = (this.activatedRoute.snapshot.params['userId?']);
     this.userService.getById(userId).subscribe(
       response => {
         this.user = response;

@@ -13,7 +13,7 @@ import { OrderListingComponent } from './order/order-listing/order-listing.compo
 const routes: Routes = [
   { path: '', redirectTo: '/kits/', pathMatch: 'full' },
   { path: 'kits/:userId?', component: KitMainPageComponent },
-  { path: 'plans/:orderId/:userId', component: PlanMainPageComponent },
+  { path: 'plans/:orderId/:userId?', component: PlanMainPageComponent },
   { path: 'clothes/:orderId/:userId', component: ClothingSelectionComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
