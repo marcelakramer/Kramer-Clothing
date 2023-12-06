@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {from, map, Observable} from 'rxjs';
+import {from, map, Observable, switchMap} from 'rxjs';
 import { Order } from '../model/order';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
@@ -30,7 +30,21 @@ export class OrderFirestoreService {
   }
 
   create(order: Order): Observable<object> {
-    return from(this.orderCollection.add({...order}));
+    // @ts-ignore
+    delete order.id;
+
+    return from(this.orderCollection.add({ ...order }))
+      .pipe(
+        switchMap(docRef => {
+          // Após a criação do documento, você pode obter os dados do Kit a partir do DocumentReference
+          return this.orderCollection.doc(docRef.id).get().pipe(
+            map(doc => {
+              // Certifique-se de ajustar conforme a estrutura real do seu objeto Kit
+              return doc.data() as Order;
+            })
+          );
+        })
+      );
   }
 
   update(order: Order): Observable<void> {

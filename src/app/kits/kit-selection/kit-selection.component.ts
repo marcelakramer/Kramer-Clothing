@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Kit } from 'src/app/shared/model/kit';
-import { Order } from 'src/app/shared/model/order';
-import { User } from 'src/app/shared/model/user';
-import { KitService } from 'src/app/shared/services/kit.service';
-import { UserService } from 'src/app/shared/services/user.service';
-import { OrderService } from 'src/app/shared/services/order.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Kit} from 'src/app/shared/model/kit';
+import {Order} from 'src/app/shared/model/order';
+import {User} from 'src/app/shared/model/user';
+import {KitService} from 'src/app/shared/services/kit.service';
+import {UserService} from 'src/app/shared/services/user.service';
+import {OrderService} from 'src/app/shared/services/order.service';
 import {KitFirestoreService} from "../../shared/services/kit-firestore.service";
 import {UserFirestoreService} from "../../shared/services/user-firestore.service";
 import {OrderFirestoreService} from "../../shared/services/order-firestore.service";
@@ -15,7 +15,7 @@ import {OrderFirestoreService} from "../../shared/services/order-firestore.servi
   templateUrl: './kit-selection.component.html',
   styleUrls: ['./kit-selection.component.scss']
 })
-export class KitSelectionComponent implements OnInit{
+export class KitSelectionComponent implements OnInit {
   kits: Kit[] = [];
   selectedKit: Kit | null = null;
   user: User | null = null;
@@ -23,21 +23,23 @@ export class KitSelectionComponent implements OnInit{
 
   isUserLoggedIn = false;
 
-  constructor(private kitService: KitFirestoreService, private userService: UserFirestoreService, private orderService: OrderFirestoreService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private kitService: KitFirestoreService, private userService: UserFirestoreService, private orderService: OrderFirestoreService, private activatedRoute: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit(): void {
-      this.isUserLoggedIn = this.userService.isLoggedIn();
-      this.kitService.getAll().subscribe(
-        response => {
-          this.kits = response;
-        }
-      )
-      const userId = (this.activatedRoute.snapshot.params['userId?']);
-      this.userService.getByAny({key: 'id', value: userId}).subscribe(
-        response => {
-          this.user = response[0];
-        }
-      )
+    this.isUserLoggedIn = this.userService.isLoggedIn();
+    this.kitService.getAll().subscribe(
+      response => {
+        this.kits = response;
+      }
+    )
+    const userId = (this.activatedRoute.snapshot.params['userId?']);
+    this.userService.getById(userId).subscribe(
+      response => {
+        this.user = response;
+        console.log('userrr', this.user)
+      }
+    )
   }
 
   toggleSelected(kit: Kit): void {
@@ -49,8 +51,12 @@ export class KitSelectionComponent implements OnInit{
       const userId = this.user ? this.user?.id : '';
       this.orderService.create(new Order('', currentDate.toDateString(), '', 'On time', this.selectedKit.factor, this.selectedKit.id, '', [], userId)).subscribe(
         response => {
-          this.order = response[0];
-          this.router.navigate(['/plans', this.order?.id, this.user?.id]);
+          console.table(response)
+
+          this.order = response as Order;
+
+          console.log(this.order.id, this.user?.id)
+          // this.router.navigate(['/plans', this.order?.id, this.user?.id]);
         }
       );
     }
