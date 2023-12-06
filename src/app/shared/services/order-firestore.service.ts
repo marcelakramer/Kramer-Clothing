@@ -30,7 +30,7 @@ export class OrderFirestoreService {
   }
 
   create(order: Order): Observable<object> {
-    return from(this.orderCollection.add(Object.assign({}, order)));
+    return from(this.orderCollection.add({...order}));
   }
 
   update(order: Order): Observable<void> {
