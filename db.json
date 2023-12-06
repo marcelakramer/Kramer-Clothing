@@ -5,27 +5,15 @@
       "name": "Ariana Grande",
       "email": "arianagrande@gmail.com",
       "password": "123"
-    }
-  ],
-  "orders": [
+    },
     {
-      "id": 1,
-      "date": "Thu Nov 16 2023",
-      "devolutionDate": "Thu Nov 23 2023",
-      "status": "On time",
-      "price": 100,
-      "kitId": 4,
-      "planId": 1,
-      "clothesIds": [
-        2,
-        3,
-        1,
-        8,
-        4
-      ],
-      "userId": 1
+      "id": 2,
+      "name": "",
+      "email": "",
+      "password": ""
     }
   ],
+  "orders": [],
   "clothing": [
     {
       "id": 1,

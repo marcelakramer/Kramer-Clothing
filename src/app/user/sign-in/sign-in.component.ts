@@ -20,10 +20,8 @@ export class SignInComponent {
         this.userService
             .getByAny({key: "email", value: this.email})
             .subscribe((found) => {
-                console.log(found)
                 if (found[0]) {
                     if (found[0].password == this.password) {
-                        console.log(found[0])
                         this.userService.changeLoggedIn(true)
                         this.router.navigate(['/kits', found[0].id]);
                     } else {

@@ -19,7 +19,6 @@ export class SignUpComponent {
     this.userService
       .getByAny({key: "email", value: this.user.email})
       .subscribe((found) => {
-        console.log(found);
         if (found && found.length > 0) {
           alert(`Email ${this.user.email} já cadastrado`);
         } else {

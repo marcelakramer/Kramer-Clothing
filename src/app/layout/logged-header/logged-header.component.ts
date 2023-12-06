@@ -17,11 +17,9 @@ export class LoggedHeaderComponent implements OnInit {
 
     ngOnInit(): void {
         const userId = this.activatedRoute.snapshot.params['userId?'];
-        console.log(userId)
         this.userService.getById(userId).subscribe(
             response => {
                 this.user = response;
-                console.log(response)
             }
         )
     }

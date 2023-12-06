@@ -11,6 +11,7 @@ import {PlanFirestoreService} from "../../shared/services/plan-firestore.service
 import {OrderFirestoreService} from "../../shared/services/order-firestore.service";
 import {UserFirestoreService} from "../../shared/services/user-firestore.service";
 import {KitFirestoreService} from "../../shared/services/kit-firestore.service";
+import { Kit } from 'src/app/shared/model/kit';
 
 @Component({
   selector: 'app-plan-selection',
@@ -22,6 +23,8 @@ export class PlanSelectionComponent {
   selectedPlan: Plan | null = null;
   order: Order = new Order('', '', '', '', 0, '', '', [], '');
   user: User | null = null;
+  kitFactor: number = 1;
+  hasUpdated: boolean = false;
 
   constructor(private planService: PlanFirestoreService, private orderService: OrderFirestoreService, private userService: UserFirestoreService, private kitService: KitFirestoreService, private activatedRoute: ActivatedRoute, private router: Router) {
   }
@@ -29,25 +32,27 @@ export class PlanSelectionComponent {
   ngOnInit(): void {
     this.planService.getAll().subscribe(
       response => {
+        console.log(2);
         this.plans = response;
       }
     )
     const orderId = this.activatedRoute.snapshot.params['orderId'];
-    this.orderService.getByAny({key: 'id', value: orderId}).subscribe(
+    this.orderService.getById(orderId).subscribe(
       response => {
-        this.order = response[0];
-        this.kitService.getByAny({key: 'id', value: this.order.kitId}).subscribe(
+        this.order = response;
+        this.kitService.getById(this.order.kitId).subscribe(
           response => {
-            const kit = response[0];
-            this.updatePrices(kit.factor);
+            this.kitFactor = response.factor;
+            this.updatePrices();
+            this.hasUpdated = true;
           }
         )
       }
     );
-    const userId = (this.activatedRoute.snapshot.params['userId?']);
-    this.userService.getByAny({key: 'id', value: userId}).subscribe(
+    const userId = (this.activatedRoute.snapshot.params['userId']);
+    this.userService.getById(userId).subscribe(
       response => {
-        this.user = response[0];
+        this.user = response;
       }
     )
   }
@@ -68,9 +73,12 @@ export class PlanSelectionComponent {
     return this.selectedPlan !== null;
   }
 
-  updatePrices(factor: number): void {
-    this.plans.map((plan) => plan.basePrice = plan.basePrice * factor);
+  updatePrices(): void {
+    if (!this.hasUpdated) { 
+      this.plans.map((plan) => plan.basePrice = plan.basePrice * this.kitFactor);
+    }
   }
+
 
   updateOrder(): void {
     if (this.selectedPlan?.id) {

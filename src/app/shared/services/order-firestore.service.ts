@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {from, map, Observable, switchMap} from 'rxjs';
+import {filter, from, map, Observable, of, switchMap} from 'rxjs';
 import { Order } from '../model/order';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentChangeAction } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +18,29 @@ export class OrderFirestoreService {
     return this.orderCollection.valueChanges({ idField: 'id' });
   }
 
+  getById(orderId: string): Observable<Order> {
+    const userDoc: AngularFirestoreDocument<Order> = this.afs.doc(`${this.COLLECTION_NAME}/${orderId}`);
+
+    // @ts-ignore
+    return userDoc.valueChanges({ idField: 'id' }).pipe(
+        filter(user => !!user)
+    );
+  }
+
+  getByUserId(userId: string): Observable<Order[]> {
+    const orderCollection = this.afs.collection<Order>('orders', ref => ref.where('userId', '==', userId));
+
+    return orderCollection.snapshotChanges().pipe(
+      map((actions: DocumentChangeAction<Order>[]) => {
+        return actions.map((a: DocumentChangeAction<Order>) => {
+          const data = a.payload.doc.data() as Order;
+          // @ts-ignore
+          return { id: a.payload.doc.id, ...data };
+        });
+      })
+    );
+  }
+
   getByAny(item: { key: string; value: string }): Observable<Order[]> {
     let orderByAny: AngularFirestoreCollection<Order>;
     orderByAny = this.afs.collection(this.COLLECTION_NAME, (ref) =>
@@ -29,23 +52,31 @@ export class OrderFirestoreService {
     );
   }
 
-  create(order: Order): Observable<object> {
+  create(order: Order): Observable<Order> {
     // @ts-ignore
     delete order.id;
-
+  
     return from(this.orderCollection.add({ ...order }))
       .pipe(
         switchMap(docRef => {
-          // Após a criação do documento, você pode obter os dados do Kit a partir do DocumentReference
-          return this.orderCollection.doc(docRef.id).get().pipe(
-            map(doc => {
-              // Certifique-se de ajustar conforme a estrutura real do seu objeto Kit
-              return doc.data() as Order;
-            })
+          const orderId = docRef.id;
+          const orderWithId = new Order(
+            orderId,
+            order.date,
+            order.devolutionDate,
+            order.status,
+            order.price,
+            order.kitId,
+            order.planId,
+            order.clothesIds,
+            order.userId
           );
+  
+          return of(orderWithId);
         })
       );
   }
+  
 
   update(order: Order): Observable<void> {
     return from(this.orderCollection.doc(order.id).update({ ...order }));

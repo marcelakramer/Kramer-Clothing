@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {from, map, Observable} from 'rxjs';
+import { from, map, Observable, filter } from 'rxjs';
 import { Kit } from '../model/kit';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +16,15 @@ export class KitFirestoreService {
 
   getAll(): Observable<Kit[]> {
     return this.kitCollection.valueChanges({ idField: 'id' });
+  }
+
+  getById(kitId: string): Observable<Kit> {
+    const kitDoc: AngularFirestoreDocument<Kit> = this.afs.doc(`${this.COLLECTION_NAME}/${kitId}`);
+
+    // @ts-ignore
+    return kitDoc.valueChanges({ idField: 'id' }).pipe(
+        filter(kit => !!kit)
+    );
   }
 
   getByAny(item: { key: string; value: string }): Observable<Kit[]> {

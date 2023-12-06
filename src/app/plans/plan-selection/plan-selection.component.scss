@@ -18,11 +18,12 @@ h1 {
 }
 
 .plan-card {
-    width: 15rem;
+    width: 16rem;
     height: 22rem;
     margin: 0.25rem 0;
-    padding: 2rem 3rem;
+    padding: 2rem 1rem;
     cursor: pointer;
+
 
     &:hover {
         opacity: 0.75;
@@ -45,6 +46,7 @@ h1 {
     font-size: 2.5rem;
     font-family: 'Nunito';
     font-weight: 700;
+    width: 100%;
 }
 
 .plan-duration, .plan-num-of-clothes {

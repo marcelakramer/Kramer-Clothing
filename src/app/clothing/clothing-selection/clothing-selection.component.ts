@@ -36,28 +36,28 @@ export class ClothingSelectionComponent implements OnInit{
   ngOnInit(): void {
 
     const orderId = this.activatedRoute.snapshot.params['orderId'];
-      this.orderService.getByAny({key: 'id',  value: orderId}).subscribe(
+      this.orderService.getById( orderId).subscribe(
         response => {
-          this.order = response[0];
-          this.kitService.getByAny({key: 'id',  value: this.order.kitId}).subscribe(
+          this.order = response;
+          this.kitService.getById(this.order.kitId).subscribe(
             response => {
-              this.kit = response[0];
+              this.kit = response;
             }
           );
-          this.planService.getByAny({key: 'id',  value: this.order.planId}).subscribe(
+          this.planService.getById(this.order.planId).subscribe(
             response => {
-              this.plan = response[0];
+              this.plan = response;
             }
           );
 
-          if (this.order.kitId.toString() === '4') {
+          if (this.order.kitId === '6MPRiCRtU6pQD0psEJbV') {
             this.clothingService.getAll().subscribe(
-              response => {
+              response => {   
                 this.clothes = response;
                 this.calcClothesRemaining();
               });
           } else {
-            this.clothingService.getByAny({key: 'kitId', value: this.order.kitId.toString()}).subscribe(
+            this.clothingService.getByKitId(this.order.kitId).subscribe(
               response => {
                 this.clothes = response;
                 this.calcClothesRemaining();
@@ -66,10 +66,10 @@ export class ClothingSelectionComponent implements OnInit{
         }
       );
 
-    const userId = (this.activatedRoute.snapshot.params['userId?']);
-    this.userService.getByAny({key: 'id', value: userId}).subscribe(
+    const userId = (this.activatedRoute.snapshot.params['userId']);
+    this.userService.getById(userId).subscribe(
       response => {
-        this.user = response[0];
+        this.user = response;
       }
     );
   }

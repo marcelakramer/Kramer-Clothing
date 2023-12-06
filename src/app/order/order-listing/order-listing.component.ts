@@ -27,7 +27,7 @@ export class OrderListingComponent implements OnInit{
 
   ngOnInit(): void {
     this.userId = (this.activatedRoute.snapshot.params['userId']);
-    this.orderService.getByAny({key: 'userId', value: this.userId}).subscribe(
+    this.orderService.getByUserId(this.userId).subscribe(
       response => {
         this.orders = response;
       }
@@ -78,7 +78,7 @@ export class OrderListingComponent implements OnInit{
     const index = this.orders.findIndex(obj => obj.id === order.id);
     this.orderService.delete(this.orders[index]).subscribe(
       () => {
-        this.orderService.getByAny({key: 'userId', value: this.userId}).subscribe(
+        this.orderService.getByUserId(this.userId).subscribe(
           response => {
             this.orders = response;
           }

@@ -37,10 +37,9 @@ export class KitSelectionComponent implements OnInit {
     this.userService.getById(userId).subscribe(
       response => {
         this.user = response;
-        console.log('userrr', this.user)
       }
     )
-  }
+  } 
 
   toggleSelected(kit: Kit): void {
     if (this.isSelected(kit)) {
@@ -51,12 +50,8 @@ export class KitSelectionComponent implements OnInit {
       const userId = this.user ? this.user?.id : '';
       this.orderService.create(new Order('', currentDate.toDateString(), '', 'On time', this.selectedKit.factor, this.selectedKit.id, '', [], userId)).subscribe(
         response => {
-          console.table(response)
-
           this.order = response as Order;
-
-          console.log(this.order.id, this.user?.id)
-          // this.router.navigate(['/plans', this.order?.id, this.user?.id]);
+          this.router.navigate(['/plans', this.order?.id, this.user?.id]);
         }
       );
     }

@@ -18,7 +18,6 @@ export class ListagemComponent implements OnInit {
 
   ngOnInit(): void {
     this.userFireStoreService.getAll().subscribe(users => {
-      console.log(users)
       this.dataSource = new MatTableDataSource<User>(users);
     })
   }

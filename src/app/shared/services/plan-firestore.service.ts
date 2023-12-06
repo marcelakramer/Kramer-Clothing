@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {from, map, Observable} from 'rxjs';
+import { filter, from, map, Observable } from 'rxjs';
 import { Plan } from '../model/plan';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +17,16 @@ export class PlanFirestoreService {
   getAll(): Observable<Plan[]> {
     return this.planCollection.valueChanges({ idField: 'id' });
   }
+
+  getById(planId: string): Observable<Plan> {
+    const planDoc: AngularFirestoreDocument<Plan> = this.afs.doc(`${this.COLLECTION_NAME}/${planId}`);
+
+    // @ts-ignore
+    return planDoc.valueChanges({ idField: 'id' }).pipe(
+        filter(plan => !!plan)
+    );
+  }
+
 
   getByAny(item: { key: string; value: string }): Observable<Plan[]> {
     let planByAny: AngularFirestoreCollection<Plan>;
