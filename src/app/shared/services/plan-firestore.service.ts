@@ -23,7 +23,7 @@ export class PlanFirestoreService {
 
     return planDoc.valueChanges({ idField: 'id' }).pipe(
       filter(plan => !!plan),
-      map(plan => plan as Plan) // Add this line to cast the result to Plan
+      map(plan => plan as Plan)
     );
   }
 

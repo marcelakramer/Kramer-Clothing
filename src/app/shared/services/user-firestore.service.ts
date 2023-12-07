@@ -24,7 +24,7 @@ export class UserFirestoreService {
 
     return userDoc.valueChanges({ idField: 'id' }).pipe(
       filter(user => !!user),
-      map(user => user as User) // Add this line to cast the result to User
+      map(user => user as User)
     );
   }
 
@@ -39,7 +39,7 @@ export class UserFirestoreService {
         return snapshot.docs.map(doc => {
           const data = doc.data() as User;
           const id = doc.id;
-          const { id: _, ...userData } = data; // Use destructuring to omit id
+          const { id: _, ...userData } = data;
           return { id, ...userData };
         });
       })

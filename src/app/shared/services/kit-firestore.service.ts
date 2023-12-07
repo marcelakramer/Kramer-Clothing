@@ -23,7 +23,7 @@ export class KitFirestoreService {
 
     return kitDoc.valueChanges({ idField: 'id' }).pipe(
       filter(kit => !!kit),
-      map(kit => kit as Kit) // Add this line to cast the result to Kit
+      map(kit => kit as Kit)
     );
   }
 

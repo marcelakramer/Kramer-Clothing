@@ -23,7 +23,7 @@ export class OrderFirestoreService {
 
     return orderDoc.valueChanges({ idField: 'id' }).pipe(
       filter(order => !!order),
-      map(order => order as Order) // Add this line to cast the result to Order
+      map(order => order as Order)
     );
   }
 
