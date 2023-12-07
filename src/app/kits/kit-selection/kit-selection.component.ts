@@ -31,6 +31,7 @@ export class KitSelectionComponent implements OnInit {
     this.kitService.getAll().subscribe(
       response => {
         this.kits = response;
+        this.kits = this.kits.sort((a, b) => a.factor - b.factor);
       }
     )
     const userId = (this.activatedRoute.snapshot.params['userId?']);

@@ -33,6 +33,7 @@ export class PlanSelectionComponent {
     this.planService.getAll().subscribe(
       response => {
         this.plans = response;
+        this.plans = this.plans.sort((a, b) => a.duration - b.duration);
       }
     )
     const orderId = this.activatedRoute.snapshot.params['orderId'];
