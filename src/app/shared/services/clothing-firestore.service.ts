@@ -32,8 +32,7 @@ export class ClothingFirestoreService {
       map((actions: DocumentChangeAction<Clothing>[]) => {
         return actions.map((a: DocumentChangeAction<Clothing>) => {
           const data = a.payload.doc.data() as Clothing;
-          // @ts-ignore
-          return { id: a.payload.doc.id, ...data };
+          return { ...data };
         });
       })
     );

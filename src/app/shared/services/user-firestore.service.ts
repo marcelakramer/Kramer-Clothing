@@ -22,29 +22,27 @@ export class UserFirestoreService {
   getById(userId: string): Observable<User> {
     const userDoc: AngularFirestoreDocument<User> = this.afs.doc(`${this.COLLECTION_NAME}/${userId}`);
 
-    // @ts-ignore
     return userDoc.valueChanges({ idField: 'id' }).pipe(
-        filter(user => !!user)
+      filter(user => !!user),
+      map(user => user as User)
     );
   }
 
   getByAny(item: { key: string; value: string }): Observable<User[]> {
     let userByAny: AngularFirestoreCollection<User>;
     userByAny = this.afs.collection(this.COLLECTION_NAME, ref =>
-        ref.where(item.key, '==', item.value)
+      ref.where(item.key, '==', item.value)
     );
 
     return userByAny.get().pipe(
-        map(snapshot => {
-          return snapshot.docs.map(doc => {
-            const data = doc.data();
-            const id = doc.id;
-            // @ts-ignore
-            delete data.id;
-            // @ts-ignore
-            return { id, ...data } as User;
-          });
-        })
+      map(snapshot => {
+        return snapshot.docs.map(doc => {
+          const data = doc.data() as User;
+          const id = doc.id;
+          const { id: _, ...userData } = data;
+          return { id, ...userData };
+        });
+      })
     );
   }
 

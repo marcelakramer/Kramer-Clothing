@@ -21,9 +21,9 @@ export class PlanFirestoreService {
   getById(planId: string): Observable<Plan> {
     const planDoc: AngularFirestoreDocument<Plan> = this.afs.doc(`${this.COLLECTION_NAME}/${planId}`);
 
-    // @ts-ignore
     return planDoc.valueChanges({ idField: 'id' }).pipe(
-        filter(plan => !!plan)
+      filter(plan => !!plan),
+      map(plan => plan as Plan)
     );
   }
 

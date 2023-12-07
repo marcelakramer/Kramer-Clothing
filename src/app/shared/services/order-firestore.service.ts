@@ -19,11 +19,11 @@ export class OrderFirestoreService {
   }
 
   getById(orderId: string): Observable<Order> {
-    const userDoc: AngularFirestoreDocument<Order> = this.afs.doc(`${this.COLLECTION_NAME}/${orderId}`);
+    const orderDoc: AngularFirestoreDocument<Order> = this.afs.doc(`${this.COLLECTION_NAME}/${orderId}`);
 
-    // @ts-ignore
-    return userDoc.valueChanges({ idField: 'id' }).pipe(
-        filter(user => !!user)
+    return orderDoc.valueChanges({ idField: 'id' }).pipe(
+      filter(order => !!order),
+      map(order => order as Order)
     );
   }
 
@@ -34,8 +34,7 @@ export class OrderFirestoreService {
       map((actions: DocumentChangeAction<Order>[]) => {
         return actions.map((a: DocumentChangeAction<Order>) => {
           const data = a.payload.doc.data() as Order;
-          // @ts-ignore
-          return { id: a.payload.doc.id, ...data };
+          return { ...data };
         });
       })
     );
@@ -55,7 +54,7 @@ export class OrderFirestoreService {
   create(order: Order): Observable<Order> {
     // @ts-ignore
     delete order.id;
-  
+
     return from(this.orderCollection.add({ ...order }))
       .pipe(
         switchMap(docRef => {
@@ -71,12 +70,12 @@ export class OrderFirestoreService {
             order.clothesIds,
             order.userId
           );
-  
+
           return of(orderWithId);
         })
       );
   }
-  
+
 
   update(order: Order): Observable<void> {
     return from(this.orderCollection.doc(order.id).update({ ...order }));
