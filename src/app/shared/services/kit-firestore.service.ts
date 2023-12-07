@@ -21,11 +21,12 @@ export class KitFirestoreService {
   getById(kitId: string): Observable<Kit> {
     const kitDoc: AngularFirestoreDocument<Kit> = this.afs.doc(`${this.COLLECTION_NAME}/${kitId}`);
 
-    // @ts-ignore
     return kitDoc.valueChanges({ idField: 'id' }).pipe(
-        filter(kit => !!kit)
+      filter(kit => !!kit),
+      map(kit => kit as Kit) // Add this line to cast the result to Kit
     );
   }
+
 
   getByAny(item: { key: string; value: string }): Observable<Kit[]> {
     let kitByAny: AngularFirestoreCollection<Kit>;
