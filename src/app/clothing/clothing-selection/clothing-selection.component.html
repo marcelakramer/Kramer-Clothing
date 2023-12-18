@@ -15,8 +15,9 @@
     </div>
     <div class="clothes">
         <mat-card *ngFor="let clothing of clothes" class="clothing-card" (click)="toggleSelected(clothing)" [ngClass]="{ 'selected': isSelected(clothing), 'unavailable': isUnavailable(clothing)}">
-            <img class="clothing-image" src="../../../assets/clothes/cloth1.png" alt="clothing">
+            <img class="clothing-image" src="../../../assets/clothes/unavailable.svg" alt="clothing">
             <p class="clothing-name">{{clothing.description}}</p>
+            <span class="details purple" [ngClass]="{ 'invisible': isSelected(clothing)}" (click)="goToClothingInfo(clothing)">see details</span>
         </mat-card>
     </div>
 </div>

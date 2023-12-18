@@ -1,0 +1,13 @@
+<div id="clothing-page">
+    <img class="return" (click)="goBackToClothingSelection()" src="../../../assets/icons/return.svg" alt="return">
+    <div id="clothing-section">
+        <img class="clothing-img" src="../../../assets/clothes/unavailable.svg" alt="clothing">
+        <h2 class="color-bold">{{this.selectedClothing.description}}</h2>
+        <div id="clothing-info">
+            <div class="info">Brand: <span class="color-bold">{{this.selectedClothing.brand}}</span></div>
+            <div class="info">Size: <span class="color-bold">{{this.selectedClothing.size}}</span></div>
+            <div class="info">Material: <span class="color-bold">{{this.selectedClothing.material}}</span></div>
+            <div class="info">Kit: <span class="color-bold">{{this.selectedClothingKit.name}}</span></div>
+        </div>
+    </div>
+</div>

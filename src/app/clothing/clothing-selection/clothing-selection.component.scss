@@ -93,3 +93,18 @@ p {
 .clothing-name {
     margin: 0.5rem 0;
 }
+
+.clothing-image {
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.details {
+    font-size: 0.6rem;
+    font-family: Nunito;
+}
+
+.invisible {
+    opacity: 0;
+    pointer-events: none;
+}

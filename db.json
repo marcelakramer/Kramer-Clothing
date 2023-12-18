@@ -24,6 +24,28 @@
         4
       ],
       "userId": 1
+    },
+    {
+      "id": 2,
+      "date": "Sun Dec 17 2023",
+      "devolutionDate": "Sun Dec 24 2023",
+      "status": "On time",
+      "price": 100,
+      "kitId": 4,
+      "planId": 1,
+      "clothesIds": [],
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "date": "Sun Dec 17 2023",
+      "devolutionDate": "Sun Dec 24 2023",
+      "status": "On time",
+      "price": 100,
+      "kitId": 4,
+      "planId": 1,
+      "clothesIds": [],
+      "userId": 2
     }
   ],
   "clothing": [
@@ -33,7 +55,7 @@
       "brand": "Nike",
       "size": "S",
       "color": "black",
-      "material": "cotton",
+      "material": "Cotton",
       "imageIcon": "src/assets/cloth1.png",
       "kitId": 1
     },
@@ -43,7 +65,7 @@
       "brand": "Adidas",
       "size": "M",
       "color": "blue",
-      "material": "polyester",
+      "material": "Polyester",
       "imageIcon": "src/assets/cloth2.png",
       "kitId": 2
     },
@@ -53,7 +75,7 @@
       "brand": "Puma",
       "size": "S",
       "color": "red",
-      "material": "spandex",
+      "material": "Spandex",
       "imageIcon": "src/assets/cloth3.png",
       "kitId": 3
     },
@@ -63,7 +85,7 @@
       "brand": "Under Armour",
       "size": "M",
       "color": "gray",
-      "material": "nylon",
+      "material": "Nylon",
       "imageIcon": "src/assets/cloth4.png",
       "kitId": 1
     },
@@ -73,7 +95,7 @@
       "brand": "Reebok",
       "size": "S",
       "color": "green",
-      "material": "cotton",
+      "material": "Cotton",
       "imageIcon": "src/assets/cloth5.png",
       "kitId": 2
     },
@@ -83,7 +105,7 @@
       "brand": "New Balance",
       "size": "M",
       "color": "black",
-      "material": "spandex",
+      "material": "Spandex",
       "imageIcon": "src/assets/cloth6.png",
       "kitId": 3
     },
@@ -93,7 +115,7 @@
       "brand": "Fila",
       "size": "S",
       "color": "white",
-      "material": "polyester",
+      "material": "Polyester",
       "imageIcon": "src/assets/cloth7.png",
       "kitId": 1
     },
@@ -103,7 +125,7 @@
       "brand": "ASICS",
       "size": "M",
       "color": "purple",
-      "material": "nylon",
+      "material": "Nylon",
       "imageIcon": "src/assets/cloth8.png",
       "kitId": 2
     },
@@ -113,7 +135,7 @@
       "brand": "Converse",
       "size": "S",
       "color": "orange",
-      "material": "cotton",
+      "material": "Cotton",
       "imageIcon": "src/assets/cloth9.png",
       "kitId": 3
     },
@@ -123,7 +145,7 @@
       "brand": "Vans",
       "size": "M",
       "color": "yellow",
-      "material": "spandex",
+      "material": "Spandex",
       "imageIcon": "src/assets/cloth10.png",
       "kitId": 1
     },
@@ -133,7 +155,7 @@
       "brand": "Lululemon",
       "size": "S",
       "color": "pink",
-      "material": "polyester",
+      "material": "Polyester",
       "imageIcon": "src/assets/cloth11.png",
       "kitId": 2
     },
@@ -143,7 +165,7 @@
       "brand": "Columbia",
       "size": "M",
       "color": "teal",
-      "material": "nylon",
+      "material": "Nylon",
       "imageIcon": "src/assets/cloth12.png",
       "kitId": 3
     },
@@ -153,7 +175,7 @@
       "brand": "Champion",
       "size": "S",
       "color": "maroon",
-      "material": "cotton",
+      "material": "Cotton",
       "imageIcon": "src/assets/cloth13.png",
       "kitId": 1
     },
@@ -163,7 +185,7 @@
       "brand": "Patagonia",
       "size": "M",
       "color": "navy",
-      "material": "polyester",
+      "material": "Polyester",
       "imageIcon": "src/assets/cloth14.png",
       "kitId": 2
     },
@@ -173,7 +195,7 @@
       "brand": "H&M",
       "size": "S",
       "color": "brown",
-      "material": "spandex",
+      "material": "Spandex",
       "imageIcon": "src/assets/cloth15.png",
       "kitId": 3
     },
@@ -183,7 +205,7 @@
       "brand": "Gap",
       "size": "M",
       "color": "burgundy",
-      "material": "cotton",
+      "material": "Cotton",
       "imageIcon": "src/assets/cloth16.png",
       "kitId": 1
     }
