@@ -22,13 +22,23 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
       this.userId = this.activatedRoute.snapshot.params['userId'];
 
-      this.userService.getAll().subscribe(users => {
-        for(let userFound of users) {
-          if(userFound.id == this.userId) {
-            this.user = userFound;
-          }
+      // this.userService.getAll().subscribe(users => {
+      //   for(let userFound of users) {
+      //     if(userFound.id == this.userId) {
+      //       this.user = userFound;
+      //     }
+      //   }
+      // });
+
+      this.userService.getById(this.userId).subscribe((response) => {
+        if(response[0]) {
+          
+          console.log('piri', this.userId);
+          console.log(response);
+          
+          this.user = response[0]
         }
-      });
+      })
   }
 
   onInputChange() {

@@ -63,7 +63,7 @@ export class ClothingSelectionComponent implements OnInit{
       );
 
     const userId = (this.activatedRoute.snapshot.params['userId']);
-    this.userService.getByAny({key: 'id', value: userId}).subscribe(
+    this.userService.getById(userId).subscribe(
       response => {
         this.user = response[0];
       }

@@ -20,11 +20,16 @@ export class OrderService {
   }
 
   create(order: Order) {
+    // @ts-ignore
+    delete order.id;
+
+    console.log('quem quer brincar poe o dedo aqui', order);
+    
     return this.http.post<Order>(`${this.baseUrl}`, order);
   }
 
   update(order: Order) {
-    return this.http.put<Order>(`${this.baseUrl}/${order.id}`, order);
+    return this.http.put<Order>(`${this.baseUrl}?id=${order.id}`, order);
   }
 
   delete(order: Order) {
