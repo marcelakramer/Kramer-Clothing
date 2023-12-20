@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { ListagemComponent } from './listagem/listagem.component';
 import { MatTableModule } from '@angular/material/table';
@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    ReactiveFormsModule,
     FormsModule,
     MatTableModule,
   ],
