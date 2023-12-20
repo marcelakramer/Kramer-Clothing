@@ -18,10 +18,12 @@ export class SignInComponent {
     this.userService
       .getByAny({ key: 'email', value: this.email })
       .subscribe((found) => {
-        if (found[0]) {
-          if (found[0].password == this.password) {
+        console.log(found);
+
+        if (found) {
+          if (found.password == this.password) {
             this.userService.changeLoggedIn(true)
-            this.router.navigate(['/kits', found[0].id]);
+            this.router.navigate(['/kits', found.id]);
           } else {
             alert(`Credenciais inválidas.`)
           }

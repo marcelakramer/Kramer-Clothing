@@ -7,7 +7,7 @@ import { Kit } from '../model/kit';
   providedIn: 'root',
 })
 export class KitService {
-  private baseUrl: string = 'http://localhost:3000/kits';
+  private baseUrl: string = 'http://localhost:5420/kits';
 
   constructor(private http: HttpClient) {}
 

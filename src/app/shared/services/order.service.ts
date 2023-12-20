@@ -7,7 +7,7 @@ import { Order } from '../model/order';
   providedIn: 'root',
 })
 export class OrderService {
-  private baseUrl: string = 'http://localhost:3000/orders';
+  private baseUrl: string = 'http://localhost:5420/orders';
 
   constructor(private http: HttpClient) {}
 
