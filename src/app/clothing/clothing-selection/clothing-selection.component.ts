@@ -10,6 +10,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { User } from 'src/app/shared/model/user';
 import { Order } from 'src/app/shared/model/order';
+import { MessageSweetService } from 'src/app/shared/services/message.service';
 @Component({
   selector: 'app-clothing-selection',
   templateUrl: './clothing-selection.component.html',
@@ -24,7 +25,7 @@ export class ClothingSelectionComponent implements OnInit{
   plan: Plan | null = null;
   user: User | null = null;
 
-  constructor(private clothingService: ClothingService, private orderService: OrderService, private planService: PlanService, private kitService: KitService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private clothingService: ClothingService, private orderService: OrderService, private planService: PlanService, private kitService: KitService, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router, private messageService: MessageSweetService) {
 
   }
 
@@ -73,7 +74,7 @@ export class ClothingSelectionComponent implements OnInit{
     if (this.isSelected(clothing)) {
       this.selectedClothes = this.selectedClothes.filter((c) => c !== clothing);
     } else if (this.clothesRemaining === 0) {
-      alert("There are no remaining clothes to choose.");
+      this.messageService.alert(`You have reached the maximum amount of selected clothes.`);
     } else {
       this.selectedClothes.push(clothing);
     }

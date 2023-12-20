@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageSweetService } from 'src/app/shared/services/message.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class SignInComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router, private messageService: MessageSweetService) {}
 
   onSubmit(): void {
     this.userService
@@ -25,10 +26,10 @@ export class SignInComponent {
             this.userService.changeLoggedIn(true)
             this.router.navigate(['/kits', found.id]);
           } else {
-            alert(`Credenciais inválidas.`)
+            this.messageService.error(`Invalid credentials.`)
           }
         } else {
-          alert(`Credenciais inválidas.`);
+          this.messageService.error(`Invalid credentials.`);
         }
       });
   }
