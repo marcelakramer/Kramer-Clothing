@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
 
@@ -7,8 +7,14 @@ import { User } from '../model/user';
   providedIn: 'root',
 })
 export class UserService {
-  private baseUrl: string = 'http://localhost:3000/users';
+  private baseUrl: string = 'http://localhost:5420/users';
   private islogged: boolean = false;
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
 
   constructor(private http: HttpClient) {}
 
@@ -16,12 +22,26 @@ export class UserService {
     return this.http.get<User[]>(`${this.baseUrl}`);
   }
 
-  getByAny(item: { key: string; value: string }): Observable<User[]> {
-    return this.http.get<User[]>(`${this.baseUrl}?${item.key}=${item.value}`);
+  getByAny(item: { key: string; value: string }): Observable<User> {
+    return this.http.get<User>(`${this.baseUrl}/${item.value}`);
   }
 
-  create(user: User) {
-    return this.http.post<User>(`${this.baseUrl}`, user);
+  getById(id: string) {
+    return this.http.get<User>(`${this.baseUrl}?id=${id}`)
+  }
+
+  create(user): Observable<User> {
+    return this.http.post<User>(
+      this.baseUrl,
+      JSON.stringify(
+        {
+          name: user.name,
+          email: user.email,
+          password: user.password
+        }
+      ),
+      this.httpOptions
+    );
   }
 
   update(user: User) {

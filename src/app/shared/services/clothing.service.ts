@@ -7,7 +7,7 @@ import { Clothing } from '../model/clothing';
   providedIn: 'root',
 })
 export class ClothingService {
-  private baseUrl: string = 'http://localhost:3000/clothing';
+  private baseUrl: string = 'http://localhost:5420/clothing';
 
   constructor(private http: HttpClient) {}
 

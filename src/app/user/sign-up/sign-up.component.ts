@@ -18,16 +18,14 @@ export class SignUpComponent {
     this.userService
       .getByAny({ key: 'email', value: this.user.email })
       .subscribe((found) => {
-        if (found.length > 0) {
+        if (found) {
           alert(`Email ${this.user.email} já cadastrado`);
         } else {
           this.userService.create(this.user).subscribe();
           this.goToSignIn();
         }
       });
-  }
-
-  goToSignIn(): void {
+  }  goToSignIn(): void {
     this.router.navigate(['/sign-in']);
   }
 }

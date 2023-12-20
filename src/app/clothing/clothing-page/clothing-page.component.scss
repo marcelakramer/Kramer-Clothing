@@ -1,0 +1,43 @@
+#clothing-page {
+    padding-top: 5rem;
+    text-align: center;
+}
+
+.clothing-img {
+    width: 25%;
+    border-radius: 7px;
+}
+
+h2 {
+    padding-top: 2rem;
+    font-size: 1.9rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#clothing-info {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    margin: 3.5rem auto 0 auto;
+    width: 20%;
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: left;
+    gap: 1rem;
+}
+
+.info {
+    padding-left: 1rem;
+}
+
+.color-bold {
+    font-weight: bold;
+    color: #673AB7;
+}
+
+img.return {
+    padding: 0 45% 0 0;
+    width: 1.5rem;
+    height: auto;
+    cursor: pointer;
+    color: #673AB7;
+}
