@@ -11,6 +11,16 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input type="text" matInput required name="cpf" [(ngModel)]="user.cpf">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Phone number</mat-label>
+            <input type="text" matInput required name="phoneNumber" [(ngModel)]="user.phoneNumber">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
             <input type="email" matInput required name="email" [(ngModel)]="user.email">
           </mat-form-field>
