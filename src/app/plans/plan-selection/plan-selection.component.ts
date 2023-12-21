@@ -85,7 +85,6 @@ export class PlanSelectionComponent {
 
   goToClothes(): void {
     this.updateOrder();
-    console.log(this.order?.id, this.user?.id)
     this.router.navigate(['/clothing-selection', this.order?.id, this.user?.id])
   }
 

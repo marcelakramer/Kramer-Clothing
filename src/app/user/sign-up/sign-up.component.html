@@ -4,30 +4,30 @@
         Sign up
       </mat-card-title>
       <mat-card-content>
-        <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+        <form (ngSubmit)="onSubmit()" [formGroup]="signUpForm">
           <mat-form-field appearance="outline">
             <mat-label>Name</mat-label>
-            <input type="text" matInput required name="name" [(ngModel)]="user.name">
+            <input type="text" matInput required formControlName="name" [(ngModel)]="user.name">
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>CPF</mat-label>
-            <input type="text" matInput required name="cpf" [(ngModel)]="user.cpf">
+            <input type="text" matInput required formControlName="cpf" [(ngModel)]="user.cpf">
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Phone number</mat-label>
-            <input type="text" matInput required name="phoneNumber" [(ngModel)]="user.phoneNumber">
+            <input type="text" matInput required formControlName="phoneNumber" [(ngModel)]="user.phoneNumber">
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
-            <input type="email" matInput required name="email" [(ngModel)]="user.email">
+            <input type="email" matInput required formControlName="email" [(ngModel)]="user.email">
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput required [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="user.password">
+            <input matInput required [type]="hide ? 'password' : 'text'" formControlName="password" [(ngModel)]="user.password">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -40,7 +40,7 @@
 
           <mat-card-actions>
             <div class="sign-up-btn">
-              <button mat-raised-button color="primary" type="submit" [disabled]="!signUpForm?.valid" [ngClass]="{'disabled-button': !signUpForm?.valid}">Sign up</button>
+              <button mat-raised-button color="primary" type="submit" [disabled]="!signUpForm.valid" [ngClass]="{'disabled-button': !signUpForm.valid}">Sign up</button>
             </div>
           </mat-card-actions>
         </form>

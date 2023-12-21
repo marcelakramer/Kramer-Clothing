@@ -16,18 +16,14 @@ export class LoggedHeaderComponent implements OnInit {
   ngOnInit(): void {
       const userId = this.activatedRoute.snapshot.params['userId?'];
       this.userService.getById(userId).subscribe(
-        
+
         response => {
-          console.log(response);
-          
           this.user = response[0];
         }
       )
   }
 
   goToProfile() {
-    console.log(this.user);
-    
     this.router.navigate(['/profile', this.user?.id])
   }
 }

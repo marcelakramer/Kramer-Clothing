@@ -104,7 +104,7 @@ export class ClothingSelectionComponent implements OnInit{
     this.order.clothesIds = clothesIds;
     this.orderService.update(this.order).subscribe();
   }
-  
+
   goToClothingInfo(clothing: Clothing) {
     this.router.navigate(['clothing', clothing.id, this.order.id, this.user?.id]);
   }

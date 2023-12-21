@@ -26,6 +26,10 @@ export class UserService {
     return this.http.get<User>(`${this.baseUrl}/${item.value}`);
   }
 
+  getByEmail(item: { key: string; value: string }): Observable<User> {
+    return this.http.get<User>(`${this.baseUrl}?email=${item.value}`);
+  }
+
   getById(id: string) {
     return this.http.get<User>(`${this.baseUrl}?id=${id}`)
   }
@@ -36,6 +40,8 @@ export class UserService {
       JSON.stringify(
         {
           name: user.name,
+          cpf: user.cpf,
+          phoneNumber: user.phoneNumber,
           email: user.email,
           password: user.password
         }

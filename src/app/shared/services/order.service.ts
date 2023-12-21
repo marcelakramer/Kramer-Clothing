@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Order } from '../model/order';
 
@@ -8,6 +8,12 @@ import { Order } from '../model/order';
 })
 export class OrderService {
   private baseUrl: string = 'http://localhost:5420/orders';
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
 
   constructor(private http: HttpClient) {}
 
@@ -19,14 +25,18 @@ export class OrderService {
     return this.http.get<Order[]>(`${this.baseUrl}?${item.key}=${item.value}`);
   }
 
-  create(order: Order) {
+  //create(order: Order) {
+    // @ts-ignore
+    //delete order.id;
+    //return this.http.post<Order>(`${this.baseUrl}`, order);
+  //}
+
+  create(order: Order): Observable<Order> {
     // @ts-ignore
     delete order.id;
-
-    console.log('quem quer brincar poe o dedo aqui', order);
-    
-    return this.http.post<Order>(`${this.baseUrl}`, order);
+    return this.http.post<Order>(this.baseUrl, order, this.httpOptions);
   }
+
 
   update(order: Order) {
     return this.http.put<Order>(`${this.baseUrl}?id=${order.id}`, order);
