@@ -56,7 +56,6 @@
       "size": "S",
       "color": "black",
       "material": "Cotton",
-      "imageIcon": "src/assets/cloth1.png",
       "kitId": 1
     },
     {
@@ -66,7 +65,6 @@
       "size": "M",
       "color": "blue",
       "material": "Polyester",
-      "imageIcon": "src/assets/cloth2.png",
       "kitId": 2
     },
     {
@@ -76,7 +74,6 @@
       "size": "S",
       "color": "red",
       "material": "Spandex",
-      "imageIcon": "src/assets/cloth3.png",
       "kitId": 3
     },
     {
@@ -86,7 +83,6 @@
       "size": "M",
       "color": "gray",
       "material": "Nylon",
-      "imageIcon": "src/assets/cloth4.png",
       "kitId": 1
     },
     {
@@ -96,7 +92,6 @@
       "size": "S",
       "color": "green",
       "material": "Cotton",
-      "imageIcon": "src/assets/cloth5.png",
       "kitId": 2
     },
     {
@@ -106,7 +101,6 @@
       "size": "M",
       "color": "black",
       "material": "Spandex",
-      "imageIcon": "src/assets/cloth6.png",
       "kitId": 3
     },
     {
@@ -116,7 +110,6 @@
       "size": "S",
       "color": "white",
       "material": "Polyester",
-      "imageIcon": "src/assets/cloth7.png",
       "kitId": 1
     },
     {
@@ -126,7 +119,6 @@
       "size": "M",
       "color": "purple",
       "material": "Nylon",
-      "imageIcon": "src/assets/cloth8.png",
       "kitId": 2
     },
     {
@@ -136,7 +128,6 @@
       "size": "S",
       "color": "orange",
       "material": "Cotton",
-      "imageIcon": "src/assets/cloth9.png",
       "kitId": 3
     },
     {
@@ -146,7 +137,6 @@
       "size": "M",
       "color": "yellow",
       "material": "Spandex",
-      "imageIcon": "src/assets/cloth10.png",
       "kitId": 1
     },
     {
@@ -156,7 +146,6 @@
       "size": "S",
       "color": "pink",
       "material": "Polyester",
-      "imageIcon": "src/assets/cloth11.png",
       "kitId": 2
     },
     {
@@ -166,7 +155,7 @@
       "size": "M",
       "color": "teal",
       "material": "Nylon",
-      "imageIcon": "src/assets/cloth12.png",
+
       "kitId": 3
     },
     {
@@ -176,7 +165,7 @@
       "size": "S",
       "color": "maroon",
       "material": "Cotton",
-      "imageIcon": "src/assets/cloth13.png",
+
       "kitId": 1
     },
     {
@@ -186,7 +175,7 @@
       "size": "M",
       "color": "navy",
       "material": "Polyester",
-      "imageIcon": "src/assets/cloth14.png",
+
       "kitId": 2
     },
     {
@@ -196,7 +185,7 @@
       "size": "S",
       "color": "brown",
       "material": "Spandex",
-      "imageIcon": "src/assets/cloth15.png",
+
       "kitId": 3
     },
     {
@@ -206,7 +195,7 @@
       "size": "M",
       "color": "burgundy",
       "material": "Cotton",
-      "imageIcon": "src/assets/cloth16.png",
+
       "kitId": 1
     }
   ],

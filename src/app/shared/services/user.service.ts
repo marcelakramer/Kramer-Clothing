@@ -26,6 +26,10 @@ export class UserService {
     return this.http.get<User>(`${this.baseUrl}/${item.value}`);
   }
 
+  getByEmail(item: { key: string; value: string }): Observable<User> {
+    return this.http.get<User>(`${this.baseUrl}?email=${item.value}`);
+  }
+
   getById(id: string) {
     return this.http.get<User>(`${this.baseUrl}?id=${id}`)
   }
@@ -36,6 +40,8 @@ export class UserService {
       JSON.stringify(
         {
           name: user.name,
+          cpf: user.cpf,
+          phoneNumber: user.phoneNumber,
           email: user.email,
           password: user.password
         }
@@ -45,7 +51,7 @@ export class UserService {
   }
 
   update(user: User) {
-    return this.http.put<User>(`${this.baseUrl}/${user.id}`, user);
+    return this.http.put<User>(`${this.baseUrl}?id=${user.id}`, user);
   }
 
   delete(user: User) {

@@ -4,6 +4,7 @@ import { Kit } from 'src/app/shared/model/kit';
 import { Order } from 'src/app/shared/model/order';
 import { Plan } from 'src/app/shared/model/plan';
 import { KitService } from 'src/app/shared/services/kit.service';
+import { MessageSweetService } from 'src/app/shared/services/message.service';
 import { OrderService } from 'src/app/shared/services/order.service';
 import { PlanService } from 'src/app/shared/services/plan.service';
 
@@ -20,12 +21,14 @@ export class OrderListingComponent implements OnInit{
   plansLabels: Object = {};
 
 
-  constructor(private orderService: OrderService, private planService: PlanService, private kitService: KitService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private orderService: OrderService, private planService: PlanService, private kitService: KitService, private activatedRoute: ActivatedRoute, private router: Router, private messageService: MessageSweetService) {}
 
   ngOnInit(): void {
     this.userId = (this.activatedRoute.snapshot.params['userId']);
     this.orderService.getByAny({key: 'userId', value: this.userId}).subscribe(
       response => {
+        console.log(response);
+
         this.orders = response;
       }
     );
@@ -43,7 +46,7 @@ export class OrderListingComponent implements OnInit{
 
   mapKitsToLabels(kits: Kit[]): { [key: number]: string } {
     const labels: { [key: number]: string } = {};
-    
+
     kits.forEach((kit) => {
       labels[kit.id] = kit.name;
     });
@@ -53,7 +56,7 @@ export class OrderListingComponent implements OnInit{
 
   mapPlansToLabels(plans: Plan[]): { [key: number]: string } {
     const labels: { [key: number]: string } = {};
-    
+
     plans.forEach((plan) => {
       labels[plan.id] = plan.duration;
     });
@@ -80,9 +83,10 @@ export class OrderListingComponent implements OnInit{
             this.orders = response;
           }
         );
+        this.messageService.success('Order deleted successfully.');
       }
     );
-    
+
   }
 
   goBack() {

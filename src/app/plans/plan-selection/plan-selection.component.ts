@@ -40,7 +40,7 @@ export class PlanSelectionComponent {
         }
       );
       const userId = (this.activatedRoute.snapshot.params['userId?']);
-      this.userService.getByAny({key: 'id', value: userId}).subscribe(
+      this.userService.getById(userId).subscribe(
         response => {
           this.user = response[0];
         }
@@ -85,7 +85,6 @@ export class PlanSelectionComponent {
 
   goToClothes(): void {
     this.updateOrder();
-    console.log(this.order?.id, this.user?.id)
     this.router.navigate(['/clothing-selection', this.order?.id, this.user?.id])
   }
 
