@@ -24,6 +24,28 @@
         4
       ],
       "userId": 1
+    },
+    {
+      "id": 2,
+      "date": "Sun Dec 17 2023",
+      "devolutionDate": "Sun Dec 24 2023",
+      "status": "On time",
+      "price": 100,
+      "kitId": 4,
+      "planId": 1,
+      "clothesIds": [],
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "date": "Sun Dec 17 2023",
+      "devolutionDate": "Sun Dec 24 2023",
+      "status": "On time",
+      "price": 100,
+      "kitId": 4,
+      "planId": 1,
+      "clothesIds": [],
+      "userId": 2
     }
   ],
   "clothing": [
@@ -33,8 +55,7 @@
       "brand": "Nike",
       "size": "S",
       "color": "black",
-      "material": "cotton",
-      "imageIcon": "src/assets/cloth1.png",
+      "material": "Cotton",
       "kitId": 1
     },
     {
@@ -43,8 +64,7 @@
       "brand": "Adidas",
       "size": "M",
       "color": "blue",
-      "material": "polyester",
-      "imageIcon": "src/assets/cloth2.png",
+      "material": "Polyester",
       "kitId": 2
     },
     {
@@ -53,8 +73,7 @@
       "brand": "Puma",
       "size": "S",
       "color": "red",
-      "material": "spandex",
-      "imageIcon": "src/assets/cloth3.png",
+      "material": "Spandex",
       "kitId": 3
     },
     {
@@ -63,8 +82,7 @@
       "brand": "Under Armour",
       "size": "M",
       "color": "gray",
-      "material": "nylon",
-      "imageIcon": "src/assets/cloth4.png",
+      "material": "Nylon",
       "kitId": 1
     },
     {
@@ -73,8 +91,7 @@
       "brand": "Reebok",
       "size": "S",
       "color": "green",
-      "material": "cotton",
-      "imageIcon": "src/assets/cloth5.png",
+      "material": "Cotton",
       "kitId": 2
     },
     {
@@ -83,8 +100,7 @@
       "brand": "New Balance",
       "size": "M",
       "color": "black",
-      "material": "spandex",
-      "imageIcon": "src/assets/cloth6.png",
+      "material": "Spandex",
       "kitId": 3
     },
     {
@@ -93,8 +109,7 @@
       "brand": "Fila",
       "size": "S",
       "color": "white",
-      "material": "polyester",
-      "imageIcon": "src/assets/cloth7.png",
+      "material": "Polyester",
       "kitId": 1
     },
     {
@@ -103,8 +118,7 @@
       "brand": "ASICS",
       "size": "M",
       "color": "purple",
-      "material": "nylon",
-      "imageIcon": "src/assets/cloth8.png",
+      "material": "Nylon",
       "kitId": 2
     },
     {
@@ -113,8 +127,7 @@
       "brand": "Converse",
       "size": "S",
       "color": "orange",
-      "material": "cotton",
-      "imageIcon": "src/assets/cloth9.png",
+      "material": "Cotton",
       "kitId": 3
     },
     {
@@ -123,8 +136,7 @@
       "brand": "Vans",
       "size": "M",
       "color": "yellow",
-      "material": "spandex",
-      "imageIcon": "src/assets/cloth10.png",
+      "material": "Spandex",
       "kitId": 1
     },
     {
@@ -133,8 +145,7 @@
       "brand": "Lululemon",
       "size": "S",
       "color": "pink",
-      "material": "polyester",
-      "imageIcon": "src/assets/cloth11.png",
+      "material": "Polyester",
       "kitId": 2
     },
     {
@@ -143,8 +154,8 @@
       "brand": "Columbia",
       "size": "M",
       "color": "teal",
-      "material": "nylon",
-      "imageIcon": "src/assets/cloth12.png",
+      "material": "Nylon",
+
       "kitId": 3
     },
     {
@@ -153,8 +164,8 @@
       "brand": "Champion",
       "size": "S",
       "color": "maroon",
-      "material": "cotton",
-      "imageIcon": "src/assets/cloth13.png",
+      "material": "Cotton",
+
       "kitId": 1
     },
     {
@@ -163,8 +174,8 @@
       "brand": "Patagonia",
       "size": "M",
       "color": "navy",
-      "material": "polyester",
-      "imageIcon": "src/assets/cloth14.png",
+      "material": "Polyester",
+
       "kitId": 2
     },
     {
@@ -173,8 +184,8 @@
       "brand": "H&M",
       "size": "S",
       "color": "brown",
-      "material": "spandex",
-      "imageIcon": "src/assets/cloth15.png",
+      "material": "Spandex",
+
       "kitId": 3
     },
     {
@@ -183,8 +194,8 @@
       "brand": "Gap",
       "size": "M",
       "color": "burgundy",
-      "material": "cotton",
-      "imageIcon": "src/assets/cloth16.png",
+      "material": "Cotton",
+
       "kitId": 1
     }
   ],

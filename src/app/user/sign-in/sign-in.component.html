@@ -4,15 +4,15 @@
       Sign in
     </mat-card-title>
     <mat-card-content>
-      <form (ngSubmit)="onSubmit()" #signInForm="ngForm">
+      <form (ngSubmit)="onSubmit()" [formGroup]="signInForm">
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input type="email" matInput required name="email" [(ngModel)]="email">
+          <input type="email" matInput required formControlName="email" [(ngModel)]="email">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input required matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="password">
+          <input required matInput [type]="hide ? 'password' : 'text'" formControlName="password" [(ngModel)]="password">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -24,8 +24,8 @@
         </div>
         <mat-card-actions>
           <div class="sign-in-btn">
-            <button mat-raised-button color="primary" type="submit" [disabled]="!signInForm?.valid"
-              [ngClass]="{'disabled-button': !signInForm?.valid}">Sign in</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!signInForm.valid"
+              [ngClass]="{'disabled-button': !signInForm.valid}">Sign in</button>
           </div>
         </mat-card-actions>
       </form>

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,6 +10,7 @@ import { PlansModule } from './plans/plans.module';
 import { ClothingModule } from './clothing/clothing.module';
 import { LayoutModule } from './layout/layout.module';
 import { OrderModule } from './order/order.module';
+import { InterceptorModule } from './shared/interceptor/interceptor.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +25,8 @@ import { OrderModule } from './order/order.module';
     PlansModule,
     ClothingModule,
     LayoutModule,
-    OrderModule
+    OrderModule,
+    InterceptorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,12 +9,14 @@ import { ThankYouComponent } from './layout/thank-you/thank-you.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { ListagemComponent } from './user/listagem/listagem.component';
 import { OrderListingComponent } from './order/order-listing/order-listing.component';
+import { ClothingPageComponent } from './clothing/clothing-page/clothing-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/kits/', pathMatch: 'full' },
   { path: 'kits/:userId?', component: KitMainPageComponent },
   { path: 'plans/:orderId/:userId?', component: PlanMainPageComponent },
-  { path: 'clothes/:orderId/:userId?', component: ClothingSelectionComponent },
+  { path: 'clothing-selection/:orderId/:userId', component: ClothingSelectionComponent },
+  { path: 'clothing/:clothingId/:orderId/:userId', component: ClothingPageComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'thank-you/:userId', component: ThankYouComponent },

@@ -6,7 +6,17 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Username</mat-label>
-        <input type="username" matInput name="username" [(ngModel)]="user.name" (ngModelChange)="onInputChange()">
+        <input type="text" matInput name="username" [(ngModel)]="user.name" (ngModelChange)="onInputChange()">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>CPF</mat-label>
+        <input type="text" matInput name="cpf" [(ngModel)]="user.cpf" (ngModelChange)="onInputChange()">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input type="text" matInput name="phoneNumber" [(ngModel)]="user.phoneNumber" (ngModelChange)="onInputChange()">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -27,7 +37,7 @@
           <button mat-raised-button color="primary" class="save" (click)="saveChanges()" [ngClass]="{ 'enabled': hasInfoChanged }">Save</button>
           <button mat-raised-button color="primary" (click)="logOut()">Sign Out</button>
           <button mat-raised-button color="warn" (click)="deleteAccount()">Delete</button>
-      </mat-card-actions>  
+      </mat-card-actions>
     </mat-card-content>
   </mat-card>
 </div>

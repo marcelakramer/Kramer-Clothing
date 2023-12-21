@@ -30,7 +30,7 @@ export class KitSelectionComponent implements OnInit{
         }
       )
       const userId = (this.activatedRoute.snapshot.params['userId?']);
-      this.userService.getByAny({key: 'id', value: userId}).subscribe(
+      this.userService.getById(userId).subscribe(
         response => {
           this.user = response[0];
         }
@@ -44,12 +44,25 @@ export class KitSelectionComponent implements OnInit{
       this.selectedKit = kit;
       const currentDate = new Date()
       const userId = this.user ? this.user?.id : '';
-      this.orderService.create(new Order('', currentDate.toDateString(), '', 'On time', this.selectedKit.factor, this.selectedKit.id, '', [], userId)).subscribe(
+      this.orderService.create(
+        new Order(
+          '',
+          currentDate.toDateString(),
+          '',
+          'On time',
+          this.selectedKit.factor,
+          this.selectedKit.id,
+          '',
+          [],
+          userId
+        )
+      ).subscribe(
         response => {
           this.order = response;
           this.router.navigate(['/plans', this.order?.id, this.user?.id]);
         }
       );
+
     }
   }
 
